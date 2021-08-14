@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { BLOGS_URL } from '../config';
 
-const baseUrl = 'https://bloglister-app.herokuapp.com/api/blogs';
+const baseUrl = BLOGS_URL;
 
 let token;
 
