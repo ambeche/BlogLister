@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = '/api/users';
+const baseUrl = 'https://bloglister-app.herokuapp.com/api/users';
 
 const getUsers = async () => {
   const res = await axios.get(`${baseUrl}`);
