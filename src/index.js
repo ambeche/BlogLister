@@ -19,7 +19,8 @@ const reducers = combineReducers({
 });
 const store = createStore(
   reducers,
-  composeWithDevTools(applyMiddleware(thunk))
+  applyMiddleware(thunk),
+  //composeWithDevTools()
 );
 
 ReactDOM.render(
