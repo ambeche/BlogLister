@@ -1,6 +1,7 @@
 import axios from 'axios';
+import config from '../config';
 
-const baseUrl = 'https://bloglister-app.herokuapp.com/api/login';
+const baseUrl = config.API_LOGIN;
 
 const login = async (credentials) => {
   const res = await axios.post(baseUrl, credentials);
