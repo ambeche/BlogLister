@@ -6,9 +6,8 @@ import PropTypes from 'prop-types';
 
 const DataList = ({ type, sortby, children }) => {
   const sortData = (data) =>
-    data
-      .concat()
-      ?.sort(
+    [...data]
+      .sort(
         (a, b) => a[sortby] - (type === 'users' ? b.blogs.length : b[sortby])
       )
       .reverse();
