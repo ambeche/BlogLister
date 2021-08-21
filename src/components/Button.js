@@ -13,14 +13,14 @@ const Button = ({ marginBottom, color, label, id, className, handleClick }) => {
   };
   return (
     <>
-      <button
+      <MuiButton
         style={buttonStyle}
         onClick={handleClick}
         id={id}
         className={className}
       >
         {label}
-      </button>
+      </MuiButton>
     </>
   );
 };
