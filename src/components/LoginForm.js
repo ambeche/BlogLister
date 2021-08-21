@@ -12,6 +12,8 @@ const LoginForm = () => {
   const handlePasswordChange = ({ target }) => setPassword(target.value);
 
   const handleLogin = (event) => {
+    console.log('lg', 1);
+
     event.preventDefault();
     dispatch(setCurrentUser({ username, password }));
     setUsername('');

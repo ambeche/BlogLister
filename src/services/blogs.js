@@ -1,7 +1,6 @@
 import axios from 'axios';
-import { BLOGS_URL } from '../config';
 
-const baseUrl = BLOGS_URL;
+const baseUrl = '/api/blogs';
 
 let token;
 
