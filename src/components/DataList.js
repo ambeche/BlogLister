@@ -2,6 +2,7 @@
 // it receives children components as props.children
 import React from 'react';
 import { useSelector } from 'react-redux';
+import Spinner from './Spinner';
 import PropTypes from 'prop-types';
 
 const DataList = ({ type, sortby, children }) => {
@@ -13,6 +14,8 @@ const DataList = ({ type, sortby, children }) => {
       )
       .reverse();
   });
+
+  if (!dataList.length) return <Spinner />;
 
   return (
     <div>
