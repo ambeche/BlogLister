@@ -4,7 +4,7 @@ import { AppBar, Toolbar, Button } from '@material-ui/core';
 
 const AppNav = ({ currentUser, handleLogout }) => {
   return (
-    <AppBar position="stick">
+    <AppBar position="static">
       <Toolbar>
         <Button component={Link} to="/" color="inherit">
           Blogs

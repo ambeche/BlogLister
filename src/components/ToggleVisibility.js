@@ -1,8 +1,8 @@
 import React, { useState, useImperativeHandle } from 'react';
 import { useDispatch } from 'react-redux';
-import Button from './Button';
 import PropTypes from 'prop-types';
 import { toggleOff, toggleOn } from '../reducers/toggleReducer';
+import { Button } from '@material-ui/core';
 
 const ToggleVisibility = React.forwardRef((props, ref) => {
   const dispatch = useDispatch();
@@ -13,9 +13,7 @@ const ToggleVisibility = React.forwardRef((props, ref) => {
 
   const toggleVisibility = () => {
     if (label === 'Sign in' || label === 'Register')
-      label === 'Register'
-        ? dispatch(toggleOn())
-        : dispatch(toggleOff());
+      label === 'Register' ? dispatch(toggleOn()) : dispatch(toggleOff());
     setVisibility(!visible);
   };
 
@@ -24,16 +22,11 @@ const ToggleVisibility = React.forwardRef((props, ref) => {
   return (
     <div>
       <div style={hideOrShow} className="hideOrShow">
-        {' '}
-        {props.children}{' '}
+        {props.children}
       </div>
-      <Button
-        handleClick={toggleVisibility}
-        label={label}
-        className={props.className}
-        color={visible ? 'orange' : '#008CBA'}
-        marginBottom={10}
-      />
+      <Button onClick={toggleVisibility} >
+        {label}
+      </Button>
     </div>
   );
 });
@@ -43,7 +36,6 @@ ToggleVisibility.displayName = 'ToggleVisibility';
 ToggleVisibility.propTypes = {
   labelOne: PropTypes.string.isRequired,
   labelTwo: PropTypes.string.isRequired,
-  id: PropTypes.string
 };
 
 export default ToggleVisibility;

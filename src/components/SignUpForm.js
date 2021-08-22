@@ -1,7 +1,7 @@
+import { TextField, Typography, Button } from '@material-ui/core';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../reducers/usersReducer';
-import Button from './Button';
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
@@ -24,47 +24,49 @@ const SignUpForm = () => {
 
   return (
     <div style={{ marginBottom: 5 }}>
-      <h2>Register</h2>
+      <Typography variant="h4" component="h4">
+        Register
+      </Typography>
       <form onSubmit={handleUserRegistration}>
         <div>
-          <label>
-            Username
-            <input
-              onChange={handleUserNameChange}
-              value={username}
-              type="text"
-              name="userName"
-              autoComplete="on"
-              required
-            />
-          </label>
+          <TextField
+            onChange={handleUserNameChange}
+            value={username}
+            type="text"
+            label="Username"
+            name="userName"
+            autoComplete="on"
+            required
+          />
         </div>
+
         <div>
-          <label>
-            Name
-            <input
-              onChange={handleNameChange}
-              value={name}
-              type="text"
-              name="name"
-              autoComplete="name"
-            />
-          </label>
+          <TextField
+            onChange={handleNameChange}
+            value={name}
+            type="text"
+            label="Full name"
+            name="name"
+            autoComplete="name"
+            required
+          />
         </div>
+
         <div>
-          <label>
-            Password
-            <input
-              onChange={handlePasswdChange}
-              value={password}
-              type="password"
-              name="passwd"
-              autoComplete="password"
-              required
-            />
-          </label>
+          <TextField
+            onChange={handlePasswdChange}
+            value={password}
+            type="password"
+            label="Password"
+            name="passwd"
+            autoComplete="password"
+            required
+          />
         </div>
-        <Button label="Sign Up" color="green" id="add-user" />
+
+        <Button type="submit" variant="contained">
+          sign up
+        </Button>
       </form>
     </div>
   );

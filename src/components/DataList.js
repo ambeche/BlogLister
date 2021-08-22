@@ -5,17 +5,14 @@ import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 const DataList = ({ type, sortby, children }) => {
-  const sortData = (data) =>
-    data
-      .concat()
+  const dataList = useSelector((state) => {
+    const data = type === 'users' ? state[type][type] : state[type];
+    return data
       .sort(
         (a, b) => a[sortby] - (type === 'users' ? b.blogs.length : b[sortby])
       )
       .reverse();
-
-  const dataList = useSelector((state) =>
-    sortData(type === 'users' ? state[type][type] : state[type])
-  );
+  });
 
   return (
     <div>

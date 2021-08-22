@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import { useDispatch } from 'react-redux';
-import Button from './Button';
+
 import { notifyUser } from '../reducers/notificationReducer';
 import { createNewBlog } from '../reducers/blogsReducer';
+import { TextField, Typography, Button } from '@material-ui/core';
 
 const BlogForm = ({ toggleForm }) => {
   const dispatch = useDispatch();
@@ -30,45 +31,49 @@ const BlogForm = ({ toggleForm }) => {
 
   return (
     <div style={{ marginBottom: 5 }}>
-      <h2>Create New Blog</h2>
+      <Typography variant="h4" component="h4">
+        Create New Blog
+      </Typography>
       <form onSubmit={handleBlogCreation}>
         <div>
-          <label>
-            Title
-            <input
-              onChange={handleTitleChange}
-              value={title}
-              type="text"
-              name="title"
-              autoComplete="on"
-            />
-          </label>
+          <TextField
+            onChange={handleTitleChange}
+            value={title}
+            type="text"
+            label="Title"
+            name="title"
+            autoComplete="on"
+            required
+          />
         </div>
+
         <div>
-          <label>
-            Author
-            <input
-              onChange={handleAuthorChange}
-              value={author}
-              type="text"
-              name="author"
-              autoComplete="name"
-            />
-          </label>
+          <TextField
+            onChange={handleAuthorChange}
+            value={author}
+            type="text"
+            label="Author"
+            name="author"
+            autoComplete="name"
+            required
+          />
         </div>
+
         <div>
-          <label>
-            Url
-            <input
-              onChange={handleUrlChange}
-              value={url}
-              type="url"
-              name="url"
-              autoComplete="url"
-            />
-          </label>
+          <TextField
+            onChange={handleUrlChange}
+            value={url}
+            type="url"
+            label="Url"
+            name="url"
+            autoComplete="url"
+            required
+          />
         </div>
-        <Button label="create" color="green" id="post-blog" />
+
+        <Button variant="contained" type="submit">
+          add blog
+        </Button>
       </form>
     </div>
   );

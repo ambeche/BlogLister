@@ -3,7 +3,16 @@ import { useHistory } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { modifyBlog, deleteBlog } from '../reducers/blogsReducer';
 import { Link } from 'react-router-dom';
-import Button from './Button';
+import {
+  Button,
+  Divider,
+  List,
+  ListItem,
+  ListItemSecondaryAction,
+  ListItemText,
+  Typography,
+  Container
+} from '@material-ui/core';
 import CommentForm from './CommentForm';
 
 const BlogDetails = ({ blog }) => {
@@ -26,9 +35,9 @@ const BlogDetails = ({ blog }) => {
   };
   const commentsOnBlog = () =>
     blog?.comments?.map((cmt) => (
-      <ul key={cmt.id}>
-        <li>{cmt.content}</li>
-      </ul>
+      <ListItem dense key={cmt.id} component="div">
+        <ListItemText primary={cmt.content} />
+      </ListItem>
     ));
 
   const toggleDeleteButton = () => {
@@ -37,12 +46,9 @@ const BlogDetails = ({ blog }) => {
       console.log('user2', blog.user);
 
       return (
-        <Button
-          handleClick={handleBlogDeletion}
-          label="delete"
-          id="delete-blog"
-          color="#f44336"
-        />
+        <Button onClick={handleBlogDeletion} variant="contained">
+          delete
+        </Button>
       );
     }
   };
@@ -50,36 +56,42 @@ const BlogDetails = ({ blog }) => {
   if (!blog) return null;
 
   return (
-    <div>
-      <h2>
-        {' '}
-        {blog.title}, {blog.author}
-      </h2>
-      <h4>
-        {' '}
-        <Link to={{ pathname: blog.url }} target="_blank">
-          {blog.url}
-        </Link>{' '}
-      </h4>
-      <ul>
-        <li>
-          likes <span id="num-of-likes">{blog.likes}</span>
-        </li>
-        <li>added by {blog.user?.name} </li>
-      </ul>
+    <Container component="div">
+      <List>
+        <ListItem>
+          <ListItemText
+            primary={`${blog.title}, ${blog.author}`}
+            secondary={`added by ${blog.user?.name}`}
+          />
+          <ListItemSecondaryAction>
+            <Button
+              component={Link}
+              to={{ pathname: blog.url }}
+              target="_blank"
+            >
+              go to article
+            </Button>
+          </ListItemSecondaryAction>
+        </ListItem>
+        <ListItem>
+          <ListItemText primary="Number of Likes" secondary={blog.likes} />
+          <ListItemSecondaryAction>
+            <Button onClick={likeBlog} variant="contained">
+              like
+            </Button>
+            {toggleDeleteButton()}
+          </ListItemSecondaryAction>
+        </ListItem>
+        <Divider />
+      </List>
       <div>
-        <Button
-          handleClick={likeBlog}
-          label="like"
-          color="green"
-          id="like-blog"
-        />
-        {toggleDeleteButton()}
+        <Typography variant="h6" component="h6">
+          Comments
+        </Typography>
+        <CommentForm blogId={blog.id} />
+        {commentsOnBlog()}
       </div>
-      <h3>Comments</h3>
-      <CommentForm blogId={blog.id} />
-      {commentsOnBlog()}
-    </div>
+    </Container>
   );
 };
 

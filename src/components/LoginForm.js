@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { TextField, Button, Typography } from '@material-ui/core';
 import { setCurrentUser } from '../reducers/usersReducer';
-import Button from './Button';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -12,8 +12,6 @@ const LoginForm = () => {
   const handlePasswordChange = ({ target }) => setPassword(target.value);
 
   const handleLogin = (event) => {
-    console.log('lg', 1);
-
     event.preventDefault();
     dispatch(setCurrentUser({ username, password }));
     setUsername('');
@@ -22,33 +20,36 @@ const LoginForm = () => {
 
   return (
     <div style={{ display: toggleSignUp ? 'none' : '' }}>
-      <h2>Log in to application</h2>
+      <Typography variant="h4" component="h4">
+        Log in to application
+      </Typography>
       <form onSubmit={handleLogin}>
         <div>
-          <label>
-            Username
-            <input
-              onChange={handleUsernameChange}
-              value={username}
-              type="text"
-              name="username"
-              autoComplete="username"
-            />
-          </label>
+          <TextField
+            onChange={handleUsernameChange}
+            value={username}
+            type="text"
+            label="Username"
+            name="username"
+            autoComplete="username"
+            required
+          />
         </div>
         <div>
-          <label>
-            Password
-            <input
-              onChange={handlePasswordChange}
-              value={password}
-              type="password"
-              name="password"
-              autoComplete="currnt-password"
-            />
-          </label>
+          <TextField
+            onChange={handlePasswordChange}
+            value={password}
+            type="password"
+            label="Password"
+            name="password"
+            autoComplete="currnt-password"
+            required
+          />
         </div>
-        <Button label="log in" color="green" />
+
+        <Button type="submit" variant="contained">
+          log in
+        </Button>
       </form>
     </div>
   );
