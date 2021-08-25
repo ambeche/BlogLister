@@ -1,17 +1,38 @@
+import {
+  Container,
+  Divider,
+  Link,
+  List,
+  ListItem,
+  ListItemText,
+  Typography
+} from '@material-ui/core';
 import React from 'react';
 
 const UserDetails = ({ user }) => {
   if (!user) return null;
   return (
-    <div>
-      <h2> {user.name} </h2>
-      <h4> Added Blogs</h4>
-      <ul>
+    <Container>
+      <Typography variant="h6" component="h6">
+        {user.name}
+      </Typography>
+      <Divider />
+      <Typography>Blogs Added by User</Typography>
+      <List>
         {user.blogs.map((blog) => (
-          <li key={user.id}> {blog.title} </li>
+          <ListItem
+            key={blog.id}
+            button
+            component={Link}
+            href={blog.url}
+            target="_blank"
+          >
+            {console.log(blog.url)}
+            <ListItemText primary={blog.title} />
+          </ListItem>
         ))}
-      </ul>
-    </div>
+      </List>
+    </Container>
   );
 };
 

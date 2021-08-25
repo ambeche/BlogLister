@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Switch, Link, Route, useRouteMatch } from 'react-router-dom';
+import { Switch, Route, useRouteMatch } from 'react-router-dom';
 import DataList from './components/DataList';
 import BlogForm from './components/BlogForm';
 import LoginForm from './components/LoginForm';
@@ -10,11 +10,11 @@ import SignUpForm from './components/SignUpForm';
 import { setBlogs } from './reducers/blogsReducer';
 import { setCurrentUser, logoutUser, setUsers } from './reducers/usersReducer';
 import Blog from './components/Blog';
-import User from './components/User';
 import UserDetails from './components/UserDetails';
 import BlogDetails from './components/BlogDetails';
-import { Container, Typography } from '@material-ui/core';
+import { Container, Paper, Typography } from '@material-ui/core';
 import AppNav from './components/AppNav';
+import UserList from './components/UserList';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -64,10 +64,6 @@ const App = () => {
       <AppNav currentUser={currentUser} handleLogout={handleLogout} />
       <Notification />
 
-      <Typography variant="h4" component="h3">
-        Bloging App
-      </Typography>
-
       <ToggleVisibility
         ref={blogFormRef}
         labelOne="cancel"
@@ -83,14 +79,17 @@ const App = () => {
           <BlogDetails blog={detailsToBeShown(matchedBlog, blogs)} />
         </Route>
         <Route path="/users">
-          <DataList type="users" sortby="numberOfBlogs">
-            <User />
-          </DataList>
+          <UserList />
         </Route>
         <Route path="/">
-          <DataList type="blogs" sortby="likes">
-            <Blog />
-          </DataList>
+          <Container component={Paper}>
+            <Typography variant="h5" component="h5">
+              Blogs
+            </Typography>
+            <DataList type="blogs" sortby="likes">
+              <Blog />
+            </DataList>
+          </Container>
         </Route>
       </Switch>
     </Container>

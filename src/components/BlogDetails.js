@@ -14,10 +14,13 @@ import {
   Container
 } from '@material-ui/core';
 import CommentForm from './CommentForm';
+import { DeleteOutline, FavoriteBorderOutlined } from '@material-ui/icons';
+import useStyles from '../styles/useStyles';
 
 const BlogDetails = ({ blog }) => {
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.users.currentUser);
+  const classes = useStyles();
   const history = useHistory();
 
   const likeBlog = () => {
@@ -46,7 +49,12 @@ const BlogDetails = ({ blog }) => {
       console.log('user2', blog.user);
 
       return (
-        <Button onClick={handleBlogDeletion} variant="contained">
+        <Button
+          onClick={handleBlogDeletion}
+          size="small"
+          color="secondary"
+          startIcon={<DeleteOutline fontSize="small" />}
+        >
           delete
         </Button>
       );
@@ -55,6 +63,34 @@ const BlogDetails = ({ blog }) => {
 
   if (!blog) return null;
 
+  const secondaryActions = () => {
+    return (
+      <>
+        <Button
+          onClick={likeBlog}
+          color="secondary"
+          size="small"
+          startIcon={<FavoriteBorderOutlined fontSize="small" />}
+        >
+          like
+        </Button>
+        {toggleDeleteButton()}
+      </>
+    );
+  };
+
+  const linkToBlog = () => (
+    <Button
+      component={Link}
+      to={{ pathname: blog.url }}
+      target="_blank"
+      color="primary"
+      variant="outlined"
+    >
+      read
+    </Button>
+  );
+
   return (
     <Container component="div">
       <List>
@@ -62,25 +98,25 @@ const BlogDetails = ({ blog }) => {
           <ListItemText
             primary={`${blog.title}, ${blog.author}`}
             secondary={`added by ${blog.user?.name}`}
+            className={classes.listItemPrimary}
           />
-          <ListItemSecondaryAction>
-            <Button
-              component={Link}
-              to={{ pathname: blog.url }}
-              target="_blank"
-            >
-              go to article
-            </Button>
+          <ListItemSecondaryAction
+            className={classes.listSecondaryActionsDesktop}
+          >
+            {linkToBlog()}
           </ListItemSecondaryAction>
         </ListItem>
         <ListItem>
           <ListItemText primary="Number of Likes" secondary={blog.likes} />
-          <ListItemSecondaryAction>
-            <Button onClick={likeBlog} variant="contained">
-              like
-            </Button>
-            {toggleDeleteButton()}
+          <ListItemSecondaryAction
+            className={classes.listSecondaryActionsDesktop}
+          >
+            {secondaryActions()}
           </ListItemSecondaryAction>
+        </ListItem>
+        <ListItem className={classes.listSecondaryActionsMobile}>
+          {linkToBlog()}
+          {secondaryActions()}
         </ListItem>
         <Divider />
       </List>

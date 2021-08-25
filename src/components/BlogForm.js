@@ -5,9 +5,11 @@ import { useDispatch } from 'react-redux';
 import { notifyUser } from '../reducers/notificationReducer';
 import { createNewBlog } from '../reducers/blogsReducer';
 import { TextField, Typography, Button } from '@material-ui/core';
+import useStyles from '../styles/useStyles';
 
 const BlogForm = ({ toggleForm }) => {
   const dispatch = useDispatch();
+  const classes = useStyles();
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [url, setUrl] = useState('');
@@ -31,7 +33,7 @@ const BlogForm = ({ toggleForm }) => {
 
   return (
     <div style={{ marginBottom: 5 }}>
-      <Typography variant="h4" component="h4">
+      <Typography variant="h6" component="h6">
         Create New Blog
       </Typography>
       <form onSubmit={handleBlogCreation}>
@@ -71,7 +73,12 @@ const BlogForm = ({ toggleForm }) => {
           />
         </div>
 
-        <Button variant="contained" type="submit">
+        <Button
+          variant="contained"
+          type="submit"
+          color="primary"
+          className={classes.formSubmitBtn}
+        >
           add blog
         </Button>
       </form>

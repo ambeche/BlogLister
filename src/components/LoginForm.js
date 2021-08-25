@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { TextField, Button, Typography } from '@material-ui/core';
 import { setCurrentUser } from '../reducers/usersReducer';
+import useStyles from '../styles/useStyles';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
+  const classes = useStyles();
   const toggleSignUp = useSelector((state) => state.toggle);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -20,7 +22,7 @@ const LoginForm = () => {
 
   return (
     <div style={{ display: toggleSignUp ? 'none' : '' }}>
-      <Typography variant="h4" component="h4">
+      <Typography variant="h4" component="h4" className={classes.formTitle}>
         Log in to application
       </Typography>
       <form onSubmit={handleLogin}>
@@ -47,7 +49,12 @@ const LoginForm = () => {
           />
         </div>
 
-        <Button type="submit" variant="contained">
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          className={classes.formSubmitBtn}
+        >
           log in
         </Button>
       </form>

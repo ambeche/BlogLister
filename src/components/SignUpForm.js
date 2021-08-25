@@ -2,9 +2,11 @@ import { TextField, Typography, Button } from '@material-ui/core';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../reducers/usersReducer';
+import useStyles from '../styles/useStyles';
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
+  const classes = useStyles();
   const [username, setUserName] = useState('');
   const [name, setName] = useState('');
   const [password, setPasswd] = useState('');
@@ -24,7 +26,7 @@ const SignUpForm = () => {
 
   return (
     <div style={{ marginBottom: 5 }}>
-      <Typography variant="h4" component="h4">
+      <Typography variant="h4" component="h4" className={classes.formTitle}>
         Register
       </Typography>
       <form onSubmit={handleUserRegistration}>
@@ -64,7 +66,12 @@ const SignUpForm = () => {
           />
         </div>
 
-        <Button type="submit" variant="contained">
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          className={classes.formSubmitBtn}
+        >
           sign up
         </Button>
       </form>
