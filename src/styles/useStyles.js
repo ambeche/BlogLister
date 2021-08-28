@@ -1,4 +1,17 @@
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, createTheme } from '@material-ui/core';
+
+export const theme = createTheme({
+  breakpoints: {
+    values: {
+      xxs: 0,
+      xs: 324,
+      sm: 600,
+      md: 960,
+      lg: 1280,
+      xl: 1920
+    }
+  }
+});
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -9,17 +22,32 @@ const useStyles = makeStyles((theme) => ({
     display: 'none',
     [theme.breakpoints.up('md')]: {
       display: 'flex'
-    }
+    },
   },
   appBarEnd: {
     [theme.breakpoints.between('md', 'lg')]: { marginLeft: theme.spacing(40) },
     [theme.breakpoints.up('lg')]: { marginLeft: theme.spacing(80) }
   },
+  appBarTab: {
+    backgroundColor: theme.palette.secondary.dark
+  },
   appName: {
-    marginRight: theme.spacing(6),
-    marginLeft: theme.spacing(1.5),
-    marginTop: theme.spacing(1.5),
+    [theme.breakpoints.up('md')]: {
+      marginRight: theme.spacing(6),
+      marginLeft: theme.spacing(1.5)
+    },
+    [theme.breakpoints.only('sm')]: {
+      marginLeft: '55%'
+    },
+    [theme.breakpoints.only('xs')]: {
+      marginLeft: '30%'
+    },
     textDecoration: 'none'
+  },
+  menuIcon: {
+    [theme.breakpoints.up('md')]: {
+      display: 'none'
+    }
   },
   formSubmitBtn: {
     marginTop: theme.spacing(2),
@@ -49,7 +77,7 @@ const useStyles = makeStyles((theme) => ({
   },
   listSecondaryActionsMobile: {
     [theme.breakpoints.up('sm')]: {
-      display: 'none',
+      display: 'none'
     },
     padding: theme.spacing(1),
     '& button': {
