@@ -17,6 +17,7 @@ const Profile = ({ currentUser }) => {
   return (
     <div className={classes.profile}>
       <List component={Paper} >
+      <Divider />
         <ListItem>
           <ListItemText primary={`Welcome ${currentUser?.name}`} />
           <ListItemAvatar>
