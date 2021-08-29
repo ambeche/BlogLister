@@ -8,16 +8,18 @@ import {
   Typography
 } from '@material-ui/core';
 import React from 'react';
+import useStyles from '../styles/useStyles';
 
 const UserDetails = ({ user }) => {
+  const classes = useStyles();
   if (!user) return null;
   return (
-    <Container>
-      <Typography variant="h6" component="h6">
+    <Container className={classes.userDetails}>
+      <Typography variant="h6" component="h5">
         {user.name}
       </Typography>
       <Divider />
-      <Typography>Blogs Added by User</Typography>
+      <Typography component="h6">Blogs Added by User</Typography>
       <List>
         {user.blogs.map((blog) => (
           <ListItem

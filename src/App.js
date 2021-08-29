@@ -15,6 +15,7 @@ import BlogDetails from './components/BlogDetails';
 import { Container, Paper, Typography } from '@material-ui/core';
 import AppNav from './components/AppNav';
 import UserList from './components/UserList';
+import Profile from './components/Profile';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -45,7 +46,15 @@ const App = () => {
   };
 
   const detailsToBeShown = (match, data) =>
-    match && data.find((data) => data.id === match.params.id);
+    match && data?.find((data) => data.id === match.params.id);
+
+  // currentUser token is encripted and lacks some info needed for the profile
+  // hence this approach is used
+  // this will be optimized in the backend later
+  const profileInfo = users?.find(
+    (user) =>
+      user?.username === currentUser?.username && user?.name === currentUser?.name
+  );
 
   if (!currentUser) {
     return (
@@ -80,6 +89,9 @@ const App = () => {
         </Route>
         <Route path="/users">
           <UserList />
+        </Route>
+        <Route path="/profile">
+          <Profile currentUser={profileInfo} />
         </Route>
         <Route path="/">
           <Container component={Paper}>

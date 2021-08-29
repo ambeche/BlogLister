@@ -6,6 +6,7 @@ import { notifyUser } from '../reducers/notificationReducer';
 import { createNewBlog } from '../reducers/blogsReducer';
 import { TextField, Typography, Button } from '@material-ui/core';
 import useStyles from '../styles/useStyles';
+import { toggleOff } from '../reducers/toggleReducer';
 
 const BlogForm = ({ toggleForm }) => {
   const dispatch = useDispatch();
@@ -28,6 +29,7 @@ const BlogForm = ({ toggleForm }) => {
     setTitle('');
     setAuthor('');
     setUrl('');
+    dispatch(toggleOff());
     history.push('/');
   };
 

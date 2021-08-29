@@ -22,14 +22,19 @@ const useStyles = makeStyles((theme) => ({
     display: 'none',
     [theme.breakpoints.up('md')]: {
       display: 'flex'
-    },
+    }
   },
   appBarEnd: {
     [theme.breakpoints.between('md', 'lg')]: { marginLeft: theme.spacing(40) },
     [theme.breakpoints.up('lg')]: { marginLeft: theme.spacing(80) }
   },
   appBarTab: {
-    backgroundColor: theme.palette.secondary.dark
+    backgroundColor: theme.palette.primary.light,
+    boxShadow: `4px 4px 1px 1px ${theme.palette.secondary.light}`,
+    [theme.breakpoints.up('md')]: {
+      backgroundColor: theme.palette.secondary.dark,
+      boxShadow: '0 0 0 0'
+    }
   },
   appName: {
     [theme.breakpoints.up('md')]: {
@@ -48,6 +53,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('md')]: {
       display: 'none'
     }
+  },
+  menuItemProfile: {
+    marginRight: theme.spacing(0)
   },
   formSubmitBtn: {
     marginTop: theme.spacing(2),
@@ -86,6 +94,19 @@ const useStyles = makeStyles((theme) => ({
   },
   listItemPrimary: {
     maxWidth: theme.spacing(35)
+  },
+  profile: {
+    '& h6': {
+      marginTop: '4%'
+    }
+  },
+  userDetails: {
+    '& h6': {
+      marginTop: '2%'
+    }
+  },
+  formsContainerComponent: {
+    marginBottom: '3%'
   }
 }));
 
