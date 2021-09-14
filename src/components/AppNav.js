@@ -161,7 +161,7 @@ const AppNav = ({ currentUser, handleLogout }) => {
             component={Link}
             to="/"
           >
-            Blogging App
+            BlogLister
           </Typography>
           <div className={classes.desktopView}>
             <Button
