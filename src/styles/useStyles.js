@@ -155,10 +155,10 @@ const useStyles = makeStyles(
         flex: '1 0'
       },
       secondary: {}
-    },
-    // this fixes a bug that occurs durring pdt build by webpack; indexing conflict in the mui classess;
-    { index: 1 }
-  )
+    }
+  ),
+  // this fixes a bug that occurs durring pdt build by webpack; indexing conflict in the mui classess;
+  { index: 1 }
 );
 
 export default useStyles;
