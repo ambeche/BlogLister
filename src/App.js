@@ -18,6 +18,7 @@ import UserList from './components/UserList';
 import Profile from './components/Profile';
 import Footer from './components/Footer';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import ScrollToTop from './components/ScrollToTop';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -72,6 +73,7 @@ const App = () => {
 
   return (
     <Container>
+      <ScrollToTop />
       <AppNav currentUser={currentUser} handleLogout={handleLogout} />
       <Notification />
 
