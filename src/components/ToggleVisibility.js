@@ -25,7 +25,7 @@ const ToggleVisibility = React.forwardRef((props, ref) => {
   return (
     <div className={classes.formsContainerComponent}>
       <div style={hideOrShow}>{props.children}</div>
-      <Button onClick={toggleVisibility} color="secondary">{label}</Button>
+      <Button onClick={toggleVisibility} className={classes.secondaryActionBtn}>{label}</Button>
     </div>
   );
 });

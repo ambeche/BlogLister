@@ -15,6 +15,32 @@ export const theme = createTheme({
 
 const useStyles = makeStyles(
   (theme) => ({
+    app: {
+      display: 'flex',
+      flexDirection: 'column',
+      minHeight: '100vh',
+      '& $loginOrRegisterContainer': {
+        flexGrow: 1,
+        backgroundColor: theme.palette.primary.light,
+        display: 'flex',
+        flexFlow: 'row wrap',
+        justifyContent: 'space-evenly',
+        padding: theme.spacing(3),
+        '& $loginOrRegister': {
+          padding: theme.spacing(5),
+          flex: '0 1 auto'
+        },
+        '& $loginScreenIcons': {
+          padding: theme.spacing(1)
+        }
+      }
+    },
+    loginOrRegister: {},
+    loginOrRegisterContainer: {},
+    loginScreenIcons: {},
+    appInnerContainer: {
+      marginBottom: theme.spacing(8)
+    },
     appBar: {
       marginBottom: '3%',
       flexGrow: 1
@@ -109,12 +135,15 @@ const useStyles = makeStyles(
       }
     },
     formsContainerComponent: {
-      marginBottom: '3%'
+      marginBottom: '3%',
+      '& $secondaryActionBtn': {
+        color: theme.palette.secondary.dark
+      }
     },
+    secondaryActionBtn: {},
     footer: {
-      position: 'sticky',
       backgroundColor: theme.palette.primary.light,
-      marginTop: theme.spacing(8)
+      marginTop: 'auto'
     },
     footerGridItems: {
       padding: theme.spacing(5)
@@ -137,7 +166,7 @@ const useStyles = makeStyles(
     footerMediaContainer: {
       display: 'flex',
       flexWrap: 'wrap',
-      justifyContent: 'center',
+      justifyContent: 'space-between',
       padding: theme.spacing(2),
       paddingLeft: theme.spacing(5),
       paddingRight: theme.spacing(5),
@@ -145,17 +174,17 @@ const useStyles = makeStyles(
       color: theme.palette.background.paper
     },
     footerMediaInnerContainer: {
-      flex: '2 1'
+      flex: '0 3 auto'
     },
     footerMediaIcons: {
       marginRight: theme.spacing(2)
     },
     footerDeveloperInfo: {
-      flex: '1 0'
+      flex: '0 3 auto'
     },
     secondary: {}
   }),
-  // this fixes a bug that occurs durring pdt build by webpack; indexing conflict in the mui classess;
+  // this fixes a bug that occurs durring pdt/deployment build by webpack; indexing conflict in the mui classess;
   { index: 1 }
 );
 

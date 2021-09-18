@@ -45,9 +45,6 @@ const BlogDetails = ({ blog }) => {
 
   const toggleDeleteButton = () => {
     if (blog?.user?.username === currentUser.username) {
-      console.log('user', currentUser);
-      console.log('user2', blog.user);
-
       return (
         <Button
           onClick={handleBlogDeletion}

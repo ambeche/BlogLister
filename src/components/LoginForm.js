@@ -23,7 +23,7 @@ const LoginForm = () => {
   return (
     <div style={{ display: toggleSignUp ? 'none' : '' }}>
       <Typography variant="h4" component="h4" className={classes.formTitle}>
-        Log in to application
+        Log in to BlogLister
       </Typography>
       <form onSubmit={handleLogin}>
         <div>
