@@ -49,8 +49,8 @@ const BlogDetails = ({ blog }) => {
         <Button
           onClick={handleBlogDeletion}
           size="small"
-          color="secondary"
           startIcon={<DeleteOutline fontSize="small" />}
+          className={classes.secondaryActionBtn}
         >
           delete
         </Button>
@@ -65,9 +65,9 @@ const BlogDetails = ({ blog }) => {
       <>
         <Button
           onClick={likeBlog}
-          color="secondary"
           size="small"
           startIcon={<FavoriteBorderOutlined fontSize="small" />}
+          className={classes.secondaryActionBtn}
         >
           like
         </Button>

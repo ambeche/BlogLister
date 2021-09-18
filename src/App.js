@@ -10,11 +10,7 @@ import { setCurrentUser, logoutUser, setUsers } from './reducers/usersReducer';
 import Blog from './components/Blog';
 import UserDetails from './components/UserDetails';
 import BlogDetails from './components/BlogDetails';
-import {
-  Container,
-  Paper,
-  Typography
-} from '@material-ui/core';
+import { Container, Paper, Typography } from '@material-ui/core';
 import AppNav from './components/AppNav';
 import UserList from './components/UserList';
 import Profile from './components/Profile';
@@ -65,7 +61,7 @@ const App = () => {
       user?.name === currentUser?.name
   );
 
-  if (!currentUser) return <LoginOrRegister />
+  if (!currentUser) return <LoginOrRegister />;
 
   return (
     <div className={classes.app}>
@@ -73,7 +69,6 @@ const App = () => {
         <ScrollToTop />
         <AppNav currentUser={currentUser} handleLogout={handleLogout} />
         <Notification />
-
         <ToggleVisibility
           ref={blogFormRef}
           labelOne="cancel"

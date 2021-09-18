@@ -57,15 +57,15 @@ const Footer = (props) => {
               different blogs.
             </Typography>
           </Grid>
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid item xs={12} sm={6} md={3} >
             <Typography variant="h6">Explore</Typography>
-            <ListItem component={Link} to="/" color="inherit">
+            <ListItem component={Link} to="/" className={classes.footerSiteMap} >
               <ListItemText primary="Blogs" />
             </ListItem>
-            <ListItem component={Link} to="/users" color="inherit">
+            <ListItem component={Link} to="/users" className={classes.footerSiteMap} >
               <ListItemText primary="Users" color="inherit" />
             </ListItem>
-            <ListItem component={Link} to="/profile" color="inherit">
+            <ListItem component={Link} to="/profile" className={classes.footerSiteMap}>
               <ListItemText primary="Profile" />
             </ListItem>
           </Grid>

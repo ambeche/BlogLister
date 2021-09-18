@@ -137,14 +137,19 @@ const useStyles = makeStyles(
     formsContainerComponent: {
       marginBottom: '3%',
       '& $secondaryActionBtn': {
-        color: theme.palette.secondary.dark
       }
     },
-    secondaryActionBtn: {},
+    secondaryActionBtn: {
+      color: theme.palette.secondary.dark
+    },
     footer: {
       backgroundColor: theme.palette.primary.light,
-      marginTop: 'auto'
+      marginTop: 'auto',
+      '& $footerSiteMap': {
+        color: theme.palette.text.primary
+      }
     },
+    footerSiteMap: {},
     footerGridItems: {
       padding: theme.spacing(5)
     },

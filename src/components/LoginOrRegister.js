@@ -34,7 +34,7 @@ const LoginOrRegister = () => {
             <ListItemText primary="Share your thoughts on read blogs" />
           </ListItem>
         </div>
-        <Paper className={classes.loginOrRegister}>
+        <Paper className={classes.loginOrRegister} elevation={8}>
           <Notification />
           <LoginForm />
           <ToggleVisibility labelOne="Sign in" labelTwo="Register">
