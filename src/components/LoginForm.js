@@ -22,19 +22,21 @@ const LoginForm = () => {
 
   return (
     <div style={{ display: toggleSignUp ? 'none' : '' }}>
-      <Typography variant="h4" component="h4" className={classes.formTitle}>
+      <Typography variant="h6" component="h6" className={classes.formTitle}>
         Log in to BlogLister
       </Typography>
-      <form onSubmit={handleLogin}>
+      <form onSubmit={handleLogin} className={classes.forms}>
         <div>
           <TextField
             onChange={handleUsernameChange}
             value={username}
             type="text"
+            id="Username"
             label="Username"
             name="username"
             autoComplete="username"
             required
+            variant="outlined"
           />
         </div>
         <div>
@@ -42,10 +44,12 @@ const LoginForm = () => {
             onChange={handlePasswordChange}
             value={password}
             type="password"
+            id="Password"
             label="Password"
             name="password"
             autoComplete="currnt-password"
             required
+            variant="outlined"
           />
         </div>
 

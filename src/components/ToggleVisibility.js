@@ -23,8 +23,8 @@ const ToggleVisibility = React.forwardRef((props, ref) => {
   useImperativeHandle(ref, () => ({ toggleVisibility }));
 
   return (
-    <div className={classes.formsContainerComponent}>
-      <div style={hideOrShow}>{props.children}</div>
+    <div className={`${classes.formsContainerComponent} ${label === 'cancel' && classes.centerBlogForm}`}>
+      <div style={hideOrShow} >{props.children}</div>
       <Button onClick={toggleVisibility} className={classes.secondaryActionBtn}>{label}</Button>
     </div>
   );

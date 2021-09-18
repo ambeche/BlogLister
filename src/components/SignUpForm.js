@@ -26,19 +26,21 @@ const SignUpForm = () => {
 
   return (
     <div style={{ marginBottom: 5 }}>
-      <Typography variant="h4" component="h4" className={classes.formTitle}>
+      <Typography variant="h6" component="h6" className={classes.formTitle}>
         Register
       </Typography>
-      <form onSubmit={handleUserRegistration}>
+      <form onSubmit={handleUserRegistration} className={classes.forms} >
         <div>
           <TextField
             onChange={handleUserNameChange}
             value={username}
             type="text"
             label="Username"
+            id="Username"
             name="userName"
             autoComplete="on"
             required
+            variant="outlined"
           />
         </div>
 
@@ -48,9 +50,11 @@ const SignUpForm = () => {
             value={name}
             type="text"
             label="Full name"
+            id="Full name"
             name="name"
             autoComplete="name"
             required
+            variant="outlined"
           />
         </div>
 
@@ -60,9 +64,11 @@ const SignUpForm = () => {
             value={password}
             type="password"
             label="Password"
+            id="Password"
             name="passwd"
             autoComplete="password"
             required
+            variant="outlined"
           />
         </div>
 

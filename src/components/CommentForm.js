@@ -25,6 +25,7 @@ const CommentForm = ({ blogId }) => {
             value={content}
             type="text"
             label="enter comment"
+            id="enter comment"
             name="comment"
             required
             variant="outlined"

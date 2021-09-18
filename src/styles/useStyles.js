@@ -3,8 +3,9 @@ import { makeStyles, createTheme } from '@material-ui/core';
 export const theme = createTheme({
   breakpoints: {
     values: {
-      xxs: 0,
-      xs: 324,
+      xxxs: 0,
+      xxs: 359,
+      xs: 360,
       sm: 600,
       md: 960,
       lg: 1280,
@@ -31,7 +32,14 @@ const useStyles = makeStyles(
           flex: '0 1 auto'
         },
         '& $loginScreenIcons': {
-          padding: theme.spacing(1)
+          padding: theme.spacing(0.5)
+        },
+        '& strong': {
+          fontSize: '2em',
+          boxShadow: `4px 4px 1px 1px ${theme.palette.primary.main}`,
+          [theme.breakpoints.up('xs')]: {
+            padding: theme.spacing(0, 18, 1, 0)
+          }
         }
       }
     },
@@ -86,6 +94,20 @@ const useStyles = makeStyles(
     menuItemProfile: {
       marginRight: theme.spacing(0)
     },
+    forms: {
+      '& div': {
+        marginBottom: theme.spacing(1)
+      }
+    },
+    centerBlogForm: {
+      '& div': {
+        display: 'block',
+      },
+      '& button': {
+        display: 'block',
+        margin: 'auto'
+      },
+    },
     formSubmitBtn: {
       marginTop: theme.spacing(2),
       marginBottom: theme.spacing(0.5)
@@ -136,8 +158,7 @@ const useStyles = makeStyles(
     },
     formsContainerComponent: {
       marginBottom: '3%',
-      '& $secondaryActionBtn': {
-      }
+      '& $secondaryActionBtn': {}
     },
     secondaryActionBtn: {
       color: theme.palette.secondary.dark

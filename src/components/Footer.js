@@ -63,7 +63,7 @@ const Footer = (props) => {
               <ListItemText primary="Blogs" />
             </ListItem>
             <ListItem component={Link} to="/users" className={classes.footerSiteMap} >
-              <ListItemText primary="Users" color="inherit" />
+              <ListItemText primary="Users" />
             </ListItem>
             <ListItem component={Link} to="/profile" className={classes.footerSiteMap}>
               <ListItemText primary="Profile" />

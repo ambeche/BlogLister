@@ -35,19 +35,21 @@ const BlogForm = ({ toggleForm }) => {
 
   return (
     <div style={{ marginBottom: 5 }}>
-      <Typography variant="h6" component="h6">
+      <Typography variant="h6" component="h6" className={classes.formTitle} >
         Create New Blog
       </Typography>
-      <form onSubmit={handleBlogCreation}>
+      <form onSubmit={handleBlogCreation} className={classes.forms} >
         <div>
           <TextField
             onChange={handleTitleChange}
             value={title}
             type="text"
             label="Title"
+            id="Title"
             name="title"
             autoComplete="on"
             required
+            variant="outlined"
           />
         </div>
 
@@ -57,9 +59,11 @@ const BlogForm = ({ toggleForm }) => {
             value={author}
             type="text"
             label="Author"
+            id="Author"
             name="author"
             autoComplete="name"
             required
+            variant="outlined"
           />
         </div>
 
@@ -69,9 +73,11 @@ const BlogForm = ({ toggleForm }) => {
             value={url}
             type="url"
             label="Url"
+            id="Url"
             name="url"
             autoComplete="url"
             required
+            variant="outlined"
           />
         </div>
 

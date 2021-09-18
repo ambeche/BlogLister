@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   Container,
+  List,
   ListItem,
   ListItemText,
   Paper,
@@ -20,21 +21,23 @@ const LoginOrRegister = () => {
     <Container className={classes.app}>
       <div className={classes.loginOrRegisterContainer}>
         <div>
-          <Typography variant="h4"> BlogLister</Typography>
-          <ListItem variant="body2">
-            <Book className={classes.loginScreenIcons} />
-            <ListItemText primary="Access interesting articles/blogs" />
-          </ListItem>
-          <ListItem variant="body2">
-            <AddCircle className={classes.loginScreenIcons} />
-            <ListItemText primary="Add and track your own blogs" />
-          </ListItem>
-          <ListItem variant="body2">
-            <CommentRounded className={classes.loginScreenIcons} />
-            <ListItemText primary="Share your thoughts on read blogs" />
-          </ListItem>
+          <Typography  component="strong"> BlogLister</Typography>
+          <List>
+            <ListItem variant="body2">
+              <Book className={classes.loginScreenIcons} />
+              <ListItemText primary="Access interesting articles/blogs" />
+            </ListItem>
+            <ListItem variant="body2">
+              <AddCircle className={classes.loginScreenIcons} />
+              <ListItemText primary="Add and track your own blogs" />
+            </ListItem>
+            <ListItem variant="body2">
+              <CommentRounded className={classes.loginScreenIcons} />
+              <ListItemText primary="Share your thoughts on read blogs" />
+            </ListItem>
+          </List>
         </div>
-        <Paper className={classes.loginOrRegister} elevation={8}>
+        <Paper className={classes.loginOrRegister} elevation={3}>
           <Notification />
           <LoginForm />
           <ToggleVisibility labelOne="Sign in" labelTwo="Register">
