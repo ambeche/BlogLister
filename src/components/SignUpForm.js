@@ -36,7 +36,7 @@ const SignUpForm = () => {
             value={username}
             type="text"
             label="Username"
-            id="Username"
+            id="username"
             name="userName"
             autoComplete="on"
             required
@@ -49,8 +49,8 @@ const SignUpForm = () => {
             onChange={handleNameChange}
             value={name}
             type="text"
-            label="Full name"
-            id="Full name"
+            label="name"
+            id="name"
             name="name"
             autoComplete="name"
             required
@@ -64,7 +64,7 @@ const SignUpForm = () => {
             value={password}
             type="password"
             label="Password"
-            id="Password"
+            id="pass"
             name="passwd"
             autoComplete="password"
             required

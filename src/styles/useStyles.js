@@ -101,12 +101,12 @@ const useStyles = makeStyles(
     },
     centerBlogForm: {
       '& div': {
-        display: 'block',
+        display: 'block'
       },
       '& button': {
         display: 'block',
         margin: 'auto'
-      },
+      }
     },
     formSubmitBtn: {
       marginTop: theme.spacing(2),
@@ -183,7 +183,8 @@ const useStyles = makeStyles(
       padding: theme.spacing(0.8)
     },
     footerCopyrightText: {
-      textAlign: 'center'
+      textAlign: 'center',
+      marginTop: theme.spacing(0.5)
     },
     footerPrivacyPolicy: {
       color: theme.palette.primary.dark,
@@ -208,7 +209,14 @@ const useStyles = makeStyles(
     footerDeveloperInfo: {
       flex: '0 3 auto'
     },
-    secondary: {}
+    secondary: {},
+    dialogContainer: {
+      '& $dialogTitle': {
+        textAlign: 'center'
+      }
+    },
+    dialog: {},
+    dialogTitle: {}
   }),
   // this fixes a bug that occurs durring pdt/deployment build by webpack; indexing conflict in the mui classess;
   { index: 1 }

@@ -15,7 +15,6 @@ import AppNav from './components/AppNav';
 import UserList from './components/UserList';
 import Profile from './components/Profile';
 import Footer from './components/Footer';
-import PrivacyPolicy from './components/PrivacyPolicy';
 import ScrollToTop from './components/ScrollToTop';
 import useStyles from './styles/useStyles';
 import LoginOrRegister from './components/LoginOrRegister';
@@ -88,9 +87,6 @@ const App = () => {
           </Route>
           <Route path="/profile">
             <Profile currentUser={profileInfo} />
-          </Route>
-          <Route path="/privacy-policy">
-            <PrivacyPolicy />
           </Route>
           <Route path="/">
             <Container component={Paper}>

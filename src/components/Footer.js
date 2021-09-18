@@ -6,18 +6,28 @@ import {
   ListItemText,
   Link as MuiLink,
   Divider,
-  IconButton
+  IconButton,
+  Button
 } from '@material-ui/core';
 import { GitHub, LinkedIn } from '@material-ui/icons';
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useStyles from '../styles/useStyles';
+import MainModal from './MainModal';
+import PrivacyPolicy from './PrivacyPolicy';
 
 const Footer = (props) => {
+  const [open, setDialog] = useState(false);
   const classes = useStyles();
+
+  const openPrivacyPolicyDialog = () => setDialog(true);
+  const closeDialog = () => setDialog(false);
 
   return (
     <div className={classes.footer}>
+      <MainModal open={open} title="You Privacy is Important" closeDialog={closeDialog}>
+        <PrivacyPolicy />
+      </MainModal>
       <div className={classes.footerMediaContainer}>
         <div className={classes.footerDeveloperInfo}>
           <Typography variant="h6">Developer</Typography>
@@ -57,15 +67,23 @@ const Footer = (props) => {
               different blogs.
             </Typography>
           </Grid>
-          <Grid item xs={12} sm={6} md={3} >
+          <Grid item xs={12} sm={6} md={3}>
             <Typography variant="h6">Explore</Typography>
-            <ListItem component={Link} to="/" className={classes.footerSiteMap} >
+            <ListItem component={Link} to="/" className={classes.footerSiteMap}>
               <ListItemText primary="Blogs" />
             </ListItem>
-            <ListItem component={Link} to="/users" className={classes.footerSiteMap} >
+            <ListItem
+              component={Link}
+              to="/users"
+              className={classes.footerSiteMap}
+            >
               <ListItemText primary="Users" />
             </ListItem>
-            <ListItem component={Link} to="/profile" className={classes.footerSiteMap}>
+            <ListItem
+              component={Link}
+              to="/profile"
+              className={classes.footerSiteMap}
+            >
               <ListItemText primary="Profile" />
             </ListItem>
           </Grid>
@@ -168,10 +186,9 @@ const Footer = (props) => {
           />
           <Typography
             variant="subtitle2"
-            component={Link}
-            to={{
-              pathname: '/privacy-policy'
-            }}
+            component={Button}
+            size="small"
+            onClick={openPrivacyPolicyDialog}
             className={classes.footerPrivacyPolicy}
           >
             Privacy Policy
