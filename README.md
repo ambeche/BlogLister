@@ -10,11 +10,6 @@ read blogs from other users and make comments on different blogs.
 
 <hr/>
 
-## Screenshots
-![](/screenshots/2.png)
-
-![](/screenshots/3.png)
-
 ## Technologies Used
 
 - Node
