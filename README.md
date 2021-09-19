@@ -6,7 +6,7 @@ read blogs from other users and make comments on different blogs.
 ## Links
 <hr/>
 
- [BlogLister 📁](https://github.com/ambeche/BlogLister) &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[Live Demo ▶️](https://bloglister-2.herokuapp.com/) &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; [Bugs - Issues Page 🐛](https://github.com/ambeche/BlogLister/issues 'Issues Page')
+ [BlogLister 📁](https://github.com/ambeche/BlogLister) &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[Live Demo ▶️](https://bloglister-2.herokuapp.com/) &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; [Bugs - Issues Page 🐛](https://github.com/ambeche/BlogLister/issues 'Issues Page')
 
 <hr/>
 
