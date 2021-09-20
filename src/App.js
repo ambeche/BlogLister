@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Switch, Route, useRouteMatch } from 'react-router-dom';
+import { Switch, Route, useRouteMatch, useHistory } from 'react-router-dom';
 import DataList from './components/DataList';
 import BlogForm from './components/BlogForm';
 import Notification from './components/Notification';
@@ -28,8 +28,9 @@ const App = () => {
   ]);
   const matchedUser = useRouteMatch('/users/:id');
   const matchedBlog = useRouteMatch('/blogs/:id');
+  const history = useHistory();
   const blogFormRef = useRef();
-  const classes = useStyles();
+  const classes = useStyles({ maxHeight: '60em' });
 
   useEffect(() => {
     // initializes the redux store with blogs users from the server
@@ -46,6 +47,7 @@ const App = () => {
 
   const handleLogout = () => {
     dispatch(logoutUser());
+    history.push('/');
   };
 
   const detailsToBeShown = (match, data) =>
@@ -93,9 +95,11 @@ const App = () => {
               <Typography variant="h5" component="h5">
                 Blogs
               </Typography>
-              <DataList type="blogs" sortby="likes">
-                <Blog />
-              </DataList>
+              <div className={classes.scrollableBox}>
+                <DataList type="blogs" sortby="likes">
+                  <Blog />
+                </DataList>
+              </div>
             </Container>
           </Route>
         </Switch>

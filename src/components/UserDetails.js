@@ -20,7 +20,7 @@ const UserDetails = ({ user }) => {
       </Typography>
       <Divider />
       <Typography component="h6">Blogs Added by User</Typography>
-      <List>
+      <List className={classes.scrollableBox}>
         {user.blogs.map((blog) => (
           <ListItem
             key={blog.id}

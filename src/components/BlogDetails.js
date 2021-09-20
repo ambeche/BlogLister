@@ -38,7 +38,12 @@ const BlogDetails = ({ blog }) => {
   };
   const commentsOnBlog = () =>
     blog?.comments?.map((cmt) => (
-      <ListItem dense key={cmt.id} component="div">
+      <ListItem
+        dense
+        key={cmt.id}
+        component="div"
+        className={`${classes.commentContainer} ${classes.roundedCornersBox}`}
+      >
         <ListItemText primary={cmt.content} />
       </ListItem>
     ));
@@ -115,14 +120,13 @@ const BlogDetails = ({ blog }) => {
           {linkToBlog()}
           {secondaryActions()}
         </ListItem>
-        <Divider />
       </List>
-      <div>
+      <div className={`${classes.commentSection} ${classes.roundedCornersBox}`}>
         <Typography variant="h6" component="h6">
           Comments
         </Typography>
         <CommentForm blogId={blog.id} />
-        {commentsOnBlog()}
+        <List className={`${classes.commentListContainer} ${classes.scrollableBox}`}>{commentsOnBlog()}</List>
       </div>
     </Container>
   );

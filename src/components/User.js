@@ -7,12 +7,10 @@ const User = ({ data }) => {
 
   return (
     <>
-      <Tooltip title="go to user details">
-        <ListItem button component={Link} to={`/users/${user.id}`}>
-          <ListItemText primary={user.name} />
-          <ListItemText align="right" primary={user.blogs.length} />
-        </ListItem>
-      </Tooltip>
+      <ListItem button component={Link} to={`/users/${user.id}`}>
+        <ListItemText primary={user.name} />
+        <ListItemText align="right" primary={user.blogs.length} />
+      </ListItem>
       <Divider />
     </>
   );

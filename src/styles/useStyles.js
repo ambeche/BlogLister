@@ -1,4 +1,5 @@
 import { makeStyles, createTheme } from '@material-ui/core';
+import { PinDropSharp } from '@material-ui/icons';
 
 export const theme = createTheme({
   breakpoints: {
@@ -15,7 +16,7 @@ export const theme = createTheme({
 });
 
 const useStyles = makeStyles(
-  (theme) => ({
+  (theme, props) => ({
     app: {
       display: 'flex',
       flexDirection: 'column',
@@ -124,6 +125,24 @@ const useStyles = makeStyles(
         marginLeft: theme.spacing(1)
       }
     },
+    commentSection: {
+      padding: theme.spacing(2)
+    },
+    commentContainer: {
+      padding: '1%',
+      marginBottom: theme.spacing(2)
+    },
+    roundedCornersBox: {
+      border: '0.5px solid',
+      padding: '1%',
+      borderRadius: 8
+    },
+    scrollableBox: (props) => ({
+      padding: props ? 0 : theme.spacing(2),
+      maxHeight: props.maxHeight || 400,
+      overflow: 'auto'
+    }),
+    commentListContainer: {},
     listSecondaryActionsDesktop: {
       display: 'none',
       [theme.breakpoints.up('sm')]: {
@@ -210,13 +229,21 @@ const useStyles = makeStyles(
       flex: '0 3 auto'
     },
     secondary: {},
-    dialogContainer: {
-      '& $dialogTitle': {
-        textAlign: 'center'
+    dialog: {},
+    dialogTitle: {
+      textAlign: 'center',
+      backgroundColor: theme.palette.primary.light,
+      color: theme.palette.background.paper
+    },
+    dialogActions: {
+      justifyContent: 'center',
+      '& button': {
+        padding: theme.spacing(1)
       }
     },
-    dialog: {},
-    dialogTitle: {}
+    closeIcon: {
+      marginRight: theme.spacing(1)
+    }
   }),
   // this fixes a bug that occurs durring pdt/deployment build by webpack; indexing conflict in the mui classess;
   { index: 1 }
