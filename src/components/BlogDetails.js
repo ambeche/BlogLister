@@ -44,7 +44,7 @@ const BlogDetails = ({ blog }) => {
         component="div"
         className={`${classes.commentContainer} ${classes.roundedCornersBox}`}
       >
-        <ListItemText primary={cmt.content} />
+        <ListItemText primary={cmt.content} className={classes.commentText} />
       </ListItem>
     ));
 

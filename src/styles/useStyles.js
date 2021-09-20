@@ -1,5 +1,4 @@
 import { makeStyles, createTheme } from '@material-ui/core';
-import { PinDropSharp } from '@material-ui/icons';
 
 export const theme = createTheme({
   breakpoints: {
@@ -16,7 +15,7 @@ export const theme = createTheme({
 });
 
 const useStyles = makeStyles(
-  (theme, props) => ({
+  (theme) => ({
     app: {
       display: 'flex',
       flexDirection: 'column',
@@ -126,20 +125,22 @@ const useStyles = makeStyles(
       }
     },
     commentSection: {
-      padding: theme.spacing(2)
+      padding: theme.spacing(3),
+      border: `0.5px solid ${theme.palette.primary.main}`,
+
     },
     commentContainer: {
       padding: '1%',
-      marginBottom: theme.spacing(2)
+      marginBottom: theme.spacing(2),
+      backgroundColor: '#e1f5fe'
     },
+    commentText: {},
     roundedCornersBox: {
-      border: '0.5px solid',
-      padding: '1%',
       borderRadius: 8
     },
     scrollableBox: (props) => ({
-      padding: props ? 0 : theme.spacing(2),
-      maxHeight: props.maxHeight || 400,
+      padding: props ? 8 : 16,
+      maxHeight: props.maxHeight || 450,
       overflow: 'auto'
     }),
     commentListContainer: {},
@@ -216,7 +217,7 @@ const useStyles = makeStyles(
       padding: theme.spacing(2),
       paddingLeft: theme.spacing(5),
       paddingRight: theme.spacing(5),
-      backgroundColor: theme.palette.primary.dark,
+      backgroundColor: theme.palette.primary.main,
       color: theme.palette.background.paper
     },
     footerMediaInnerContainer: {

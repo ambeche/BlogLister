@@ -33,7 +33,7 @@ const CommentForm = ({ blogId }) => {
             multiline
           />
           <Button
-            variant="contained"
+            variant="outlined"
             type="submit"
             size="small"
             color="primary"
