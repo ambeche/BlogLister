@@ -24,7 +24,7 @@ const CommentForm = ({ blogId }) => {
             onChange={handleContentChange}
             value={content}
             type="text"
-            label="enter comment"
+            label="comment"
             id="enter comment"
             name="comment"
             required

@@ -5,7 +5,6 @@ import { modifyBlog, deleteBlog } from '../reducers/blogsReducer';
 import { Link } from 'react-router-dom';
 import {
   Button,
-  Divider,
   List,
   ListItem,
   ListItemSecondaryAction,
@@ -16,6 +15,7 @@ import {
 import CommentForm from './CommentForm';
 import { DeleteOutline, FavoriteBorderOutlined } from '@material-ui/icons';
 import useStyles from '../styles/useStyles';
+import MainModal from './MainModal';
 
 const BlogDetails = ({ blog }) => {
   const dispatch = useDispatch();
@@ -126,7 +126,11 @@ const BlogDetails = ({ blog }) => {
           Comments
         </Typography>
         <CommentForm blogId={blog.id} />
-        <List className={`${classes.commentListContainer} ${classes.scrollableBox}`}>{commentsOnBlog()}</List>
+        <List
+          className={`${classes.commentListContainer} ${classes.scrollableBox}`}
+        >
+          {commentsOnBlog()}
+        </List>
       </div>
     </Container>
   );
