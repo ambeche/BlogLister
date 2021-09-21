@@ -15,7 +15,6 @@ import {
 import CommentForm from './CommentForm';
 import { DeleteOutline, FavoriteBorderOutlined } from '@material-ui/icons';
 import useStyles from '../styles/useStyles';
-import MainModal from './MainModal';
 
 const BlogDetails = ({ blog }) => {
   const dispatch = useDispatch();
@@ -23,11 +22,13 @@ const BlogDetails = ({ blog }) => {
   const classes = useStyles();
   const history = useHistory();
 
+  console.log('blog ', blog);
+
   const likeBlog = () => {
     dispatch(
-      modifyBlog({ ...blog, user: blog?.user?.id, likes: (blog.likes += 1) })
+      modifyBlog({ ...blog, likes: (blog.likes += 1) })
     );
-    window.location.reload();
+    console.log('blog after like ', blog);
   };
 
   const handleBlogDeletion = () => {

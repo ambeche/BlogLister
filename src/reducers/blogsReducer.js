@@ -38,9 +38,6 @@ const createNewBlog = (newBlog) => {
   return async (dispatch) => {
     try {
       const createdBlog = await blogService.createBlog(newBlog);
-      const blogCreator = await userService.getUser(createdBlog.user);
-
-      createdBlog.user = blogCreator; //populates user field of created blog with the creator's details
       dispatch({
         type: 'NEW_BLOG',
         newBlog: createdBlog
@@ -58,7 +55,6 @@ const modifyBlog = (blog) => {
   return async (dispatch) => {
     try {
       const likedBlog = await blogService.updateBlog(blog, blog.id);
-      likedBlog.user = blog.user; // replaces the ObjectId type of the user field from the server with the user object
       dispatch({
         type: 'LIKE_BLOG',
         likedBlog
@@ -73,7 +69,7 @@ const deleteBlog = (id) => {
   return async (dispatch) => {
     try {
       const deleted = await blogService.deleteBlog(id);
-      console.log('res', deleted);
+      console.log('res', deleted.status);
 
       if (deleted.status === 204) {
         dispatch({
