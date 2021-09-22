@@ -13,8 +13,13 @@ import {
   Container
 } from '@material-ui/core';
 import CommentForm from './CommentForm';
-import { DeleteOutline, FavoriteBorderOutlined } from '@material-ui/icons';
+import {
+  DeleteOutline,
+  Favorite,
+  FavoriteBorderOutlined
+} from '@material-ui/icons';
 import useStyles from '../styles/useStyles';
+import styles from '../styles/BlogDetails.module.css';
 
 const BlogDetails = ({ blog }) => {
   const dispatch = useDispatch();
@@ -22,13 +27,9 @@ const BlogDetails = ({ blog }) => {
   const classes = useStyles();
   const history = useHistory();
 
-  console.log('blog ', blog);
-
+  const likes = blog?.likes.value + 1;
   const likeBlog = () => {
-    dispatch(
-      modifyBlog({ ...blog, likes: (blog.likes += 1) })
-    );
-    console.log('blog after like ', blog);
+    dispatch(modifyBlog({ ...blog, likes: { value: likes } }));
   };
 
   const handleBlogDeletion = () => {
@@ -67,12 +68,25 @@ const BlogDetails = ({ blog }) => {
   if (!blog) return null;
 
   const secondaryActions = () => {
+    // checks if blog has already been liked by the current user
+    const isLiked = blog.likes.users.some(
+      (liker) => liker.liker === currentUser.id && liker.isLiked
+    );
+    console.log('like', blog.likes.users);
+    console.log('cuser', currentUser.id);
+
     return (
       <>
         <Button
           onClick={likeBlog}
           size="small"
-          startIcon={<FavoriteBorderOutlined fontSize="small" />}
+          startIcon={
+            isLiked ? (
+              <Favorite fontSize="small" className={classes.isLiked} />
+            ) : (
+              <FavoriteBorderOutlined fontSize="small" />
+            )
+          }
           className={classes.secondaryActionBtn}
         >
           like
@@ -110,14 +124,19 @@ const BlogDetails = ({ blog }) => {
           </ListItemSecondaryAction>
         </ListItem>
         <ListItem>
-          <ListItemText primary="Number of Likes" secondary={blog.likes} />
+          <ListItemText
+            primary="Number of Likes"
+            secondary={blog.likes.value}
+          />
           <ListItemSecondaryAction
             className={classes.listSecondaryActionsDesktop}
           >
             {secondaryActions()}
           </ListItemSecondaryAction>
         </ListItem>
-        <ListItem className={classes.listSecondaryActionsMobile}>
+        <ListItem
+          className={`${classes.listSecondaryActionsMobile} ${styles.xxsmall}`}
+        >
           {linkToBlog()}
           {secondaryActions()}
         </ListItem>

@@ -4,7 +4,7 @@ export const theme = createTheme({
   breakpoints: {
     values: {
       xxxs: 0,
-      xxs: 359,
+      xxs: 354,
       xs: 360,
       sm: 600,
       md: 960,
@@ -126,8 +126,7 @@ const useStyles = makeStyles(
     },
     commentSection: {
       padding: theme.spacing(3),
-      border: `0.5px solid ${theme.palette.primary.main}`,
-
+      border: `0.5px solid ${theme.palette.primary.main}`
     },
     commentContainer: {
       padding: '1%',
@@ -162,6 +161,18 @@ const useStyles = makeStyles(
       '& button': {
         marginLeft: theme.spacing(4)
       }
+    },
+    listSecondaryActionsXXSMobile: {
+      [theme.breakpoints.down('xxs')]: {
+        display: 'none',
+        flexFlow: 'column wrap',
+        padding: theme.spacing(0),
+        '& button': {
+          marginLeft: theme.spacing(0)
+        }
+      }
+    },
+    isLiked: {
     },
     listItemPrimary: {
       maxWidth: theme.spacing(35)

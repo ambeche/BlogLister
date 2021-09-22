@@ -62,6 +62,7 @@ const addUser = (newUserInfo) => {
           newUser: createdUser
         });
       }
+      dispatch(toggleOff());
     } catch (err) {
       console.log('sign up error', err);
       if (err?.response?.data?.error)

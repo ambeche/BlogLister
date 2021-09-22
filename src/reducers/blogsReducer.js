@@ -55,6 +55,7 @@ const modifyBlog = (blog) => {
   return async (dispatch) => {
     try {
       const likedBlog = await blogService.updateBlog(blog, blog.id);
+      console.log('put', likedBlog);
       dispatch({
         type: 'LIKE_BLOG',
         likedBlog

@@ -1,4 +1,5 @@
 import { Button, TextField } from '@material-ui/core';
+import { CommentRounded } from '@material-ui/icons';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { commentOnBlog } from '../reducers/blogsReducer';
@@ -33,12 +34,13 @@ const CommentForm = ({ blogId }) => {
             multiline
           />
           <Button
+            startIcon={<CommentRounded fontSize="small" />}
             variant="outlined"
             type="submit"
             size="small"
             color="primary"
           >
-            add comment
+            comment
           </Button>
         </div>
       </form>
