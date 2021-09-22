@@ -162,16 +162,6 @@ const useStyles = makeStyles(
         marginLeft: theme.spacing(4)
       }
     },
-    listSecondaryActionsXXSMobile: {
-      [theme.breakpoints.down('xxs')]: {
-        display: 'none',
-        flexFlow: 'column wrap',
-        padding: theme.spacing(0),
-        '& button': {
-          marginLeft: theme.spacing(0)
-        }
-      }
-    },
     isLiked: {
     },
     listItemPrimary: {

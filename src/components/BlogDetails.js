@@ -20,6 +20,7 @@ import {
 } from '@material-ui/icons';
 import useStyles from '../styles/useStyles';
 import styles from '../styles/BlogDetails.module.css';
+import helpers from './utils/helpers';
 
 const BlogDetails = ({ blog }) => {
   const dispatch = useDispatch();
@@ -39,16 +40,22 @@ const BlogDetails = ({ blog }) => {
     }
   };
   const commentsOnBlog = () =>
-    blog?.comments?.map((cmt) => (
-      <ListItem
-        dense
-        key={cmt.id}
-        component="div"
-        className={`${classes.commentContainer} ${classes.roundedCornersBox}`}
-      >
-        <ListItemText primary={cmt.content} className={classes.commentText} />
-      </ListItem>
-    ));
+    blog?.comments?.map((cmt) => {
+      return (
+        <ListItem
+          dense
+          key={cmt.id}
+          component="div"
+          className={`${classes.commentContainer} ${classes.roundedCornersBox}`}
+        >
+          <ListItemText
+            primary={cmt.content}
+            className={classes.commentText}
+            secondary={helpers.dateFormater(cmt)}
+          />
+        </ListItem>
+      );
+    });
 
   const toggleDeleteButton = () => {
     if (blog?.user?.username === currentUser.username) {
