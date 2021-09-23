@@ -25,7 +25,6 @@ const BlogForm = ({ toggleForm }) => {
     toggleForm.current.toggleVisibility();
     // dispatches the newly created blog to redux store
     dispatch(createNewBlog({ title, author, url }));
-    dispatch(notifyUser(`A new blog '${title}' has been added!`, 1));
     setTitle('');
     setAuthor('');
     setUrl('');
@@ -50,6 +49,7 @@ const BlogForm = ({ toggleForm }) => {
             autoComplete="on"
             required
             variant="outlined"
+            multiline
           />
         </div>
 
@@ -64,6 +64,7 @@ const BlogForm = ({ toggleForm }) => {
             autoComplete="name"
             required
             variant="outlined"
+            multiline
           />
         </div>
 
@@ -78,6 +79,7 @@ const BlogForm = ({ toggleForm }) => {
             autoComplete="url"
             required
             variant="outlined"
+            multiline
           />
         </div>
 

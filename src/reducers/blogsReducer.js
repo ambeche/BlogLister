@@ -42,10 +42,11 @@ const createNewBlog = (newBlog) => {
         type: 'NEW_BLOG',
         newBlog: createdBlog
       });
+      if (createdBlog) dispatch(notifyUser(`Your Blog '${createdBlog.title}' has been added!`, 1));
     } catch (err) {
-      console.log('blog creation failed', err.response.data.error);
+      //console.log('blog creation failed', err);
       dispatch(
-        notifyUser(`blog creation failed: ${err.response.data.error}`, 0)
+        notifyUser(`Blog was NOT added: ${err.response.data.error} or invalid url`, 0)
       );
     }
   };

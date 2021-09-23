@@ -13,10 +13,20 @@ const getAll = async () => {
 };
 
 const createBlog = async (blog) => {
-  const res = await axios.post(baseUrl, blog, {
-    headers: { Authorization: token }
-  });
-  return res.data;
+  // get blog's link preview data from the LinkPriview api
+  const linkPreview = await axios.get(config.previewLink(blog.url));
+  console.log('linkpreview', linkPreview.data);
+
+  if (linkPreview.data) {
+    const res = await axios.post(
+      baseUrl,
+      { ...blog, linkPreview: linkPreview.data },
+      {
+        headers: { Authorization: token }
+      }
+    );
+    return res.data;
+  }
 };
 
 const updateBlog = async (blog, id) => {
