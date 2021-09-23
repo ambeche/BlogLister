@@ -10,7 +10,7 @@ import { setCurrentUser, logoutUser, setUsers } from './reducers/usersReducer';
 import Blog from './components/Blog';
 import UserDetails from './components/UserDetails';
 import BlogDetails from './components/BlogDetails';
-import { Container, Paper, Typography } from '@material-ui/core';
+import { Container, Paper } from '@material-ui/core';
 import AppNav from './components/AppNav';
 import UserList from './components/UserList';
 import Profile from './components/Profile';
@@ -18,6 +18,7 @@ import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import useStyles from './styles/useStyles';
 import LoginOrRegister from './components/LoginOrRegister';
+import Spinner from './components/Spinner';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -30,7 +31,7 @@ const App = () => {
   const matchedBlog = useRouteMatch('/blogs/:id');
   const history = useHistory();
   const blogFormRef = useRef();
-  const classes = useStyles({ maxHeight: '60em' });
+  const classes = useStyles();
 
   useEffect(() => {
     // initializes the redux store with blogs users from the server
@@ -92,14 +93,9 @@ const App = () => {
           </Route>
           <Route path="/">
             <Container component={Paper}>
-              <Typography variant="h5" component="h5">
-                Blogs
-              </Typography>
-              <div className={classes.scrollableBox}>
-                <DataList type="blogs" sortby="likes">
-                  <Blog />
-                </DataList>
-              </div>
+              <DataList scroll={true} type="blogs" sortby="likes">
+                <Blog />
+              </DataList>
             </Container>
           </Route>
         </Switch>

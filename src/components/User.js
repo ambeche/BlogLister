@@ -9,7 +9,7 @@ const User = ({ data }) => {
     <>
       <ListItem button component={Link} to={`/users/${user.id}`}>
         <ListItemText primary={user.name} />
-        <ListItemText align="right" primary={user.blogs.length} />
+        <ListItemText align="right" primary={user.numberOfBlogs} />
       </ListItem>
       <Divider />
     </>

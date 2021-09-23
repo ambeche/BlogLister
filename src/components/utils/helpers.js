@@ -14,7 +14,7 @@ const dateFormater = (cmt) => {
     'Dec'
   ];
   const createdAt = new Date(cmt.createdAt);
-  return `\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ${createdAt.getHours()}:${createdAt.getMinutes()} \u00A0\u00A0 ${createdAt.getDate()} ${
+  return `${createdAt.getHours()}:${createdAt.getMinutes()} \u00A0\u00A0 ${createdAt.getDate()} ${
     months[createdAt.getMonth() + 1]
   } ${createdAt.getFullYear()}`;
 };

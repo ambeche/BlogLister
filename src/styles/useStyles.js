@@ -73,6 +73,33 @@ const useStyles = makeStyles(
         boxShadow: '0 0 0 0'
       }
     },
+    searchBar: {
+      display: 'flex',
+      flexFlow: 'row wrap',
+      padding: theme.spacing(2),
+      justifyContent: 'center',
+      backgroundColor: theme.palette.primary.light,
+      '& h6': {
+        flex: '0.2 1 auto',
+        marginRight: theme.spacing(1),
+        marginTop: theme.spacing(1.3),
+        color: theme.palette.background.paper,
+      }
+    },
+    searchBarTitle: {},
+    searchBox: {
+      flex: '1 1 auto',
+      display: 'flex',
+      flexFlow: 'row'
+    },
+    searchInput: {
+      flex: 1,
+      padding: theme.spacing(1.5)
+    },
+    searchIcon: {
+      padding: theme.spacing(1),
+      marginTop: theme.spacing(1)
+    },
     appName: {
       [theme.breakpoints.up('md')]: {
         marginRight: theme.spacing(6),
@@ -131,7 +158,8 @@ const useStyles = makeStyles(
     commentContainer: {
       padding: '1%',
       marginBottom: theme.spacing(2),
-      backgroundColor: '#e1f5fe'
+      backgroundColor: '#e1f5fe',
+      overflowWrap: 'break-word',
     },
     commentText: {},
     roundedCornersBox: {
@@ -162,8 +190,7 @@ const useStyles = makeStyles(
         marginLeft: theme.spacing(4)
       }
     },
-    isLiked: {
-    },
+    isLiked: {},
     listItemPrimary: {
       maxWidth: theme.spacing(35)
     },
