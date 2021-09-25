@@ -21,6 +21,7 @@ import {
 import useStyles from '../styles/useStyles';
 import styles from '../styles/BlogDetails.module.css';
 import helpers from './utils/helpers';
+import Spinner from './Spinner';
 
 const BlogDetails = ({ blog }) => {
   const dispatch = useDispatch();
@@ -42,18 +43,19 @@ const BlogDetails = ({ blog }) => {
   const commentsOnBlog = () =>
     blog?.comments?.map((cmt) => {
       return (
-        <ListItem
-          dense
-          key={cmt.id}
-          component="div"
-          className={`${classes.commentContainer} ${classes.roundedCornersBox}`}
-        >
-          <ListItemText
-            primary={cmt.content}
-            className={classes.commentText}
-            secondary={helpers.dateFormater(cmt)}
-          />
-        </ListItem>
+        <div className={classes.commentContainer} key={cmt.id}>
+          <ListItem
+            dense
+            component="div"
+            className={`${classes.commentInnerContainer} ${classes.roundedCornersBox}`}
+          >
+            <ListItemText
+              primary={cmt.content}
+              className={classes.commentText}
+              secondary={helpers.dateFormater(cmt)}
+            />
+          </ListItem>
+        </div>
       );
     });
 
@@ -72,7 +74,7 @@ const BlogDetails = ({ blog }) => {
     }
   };
 
-  if (!blog) return null;
+  if (!blog) return <Spinner />;
 
   const secondaryActions = () => {
     // checks if blog has already been liked by the current user

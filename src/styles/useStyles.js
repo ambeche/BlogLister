@@ -156,7 +156,10 @@ const useStyles = makeStyles(
       border: `0.5px solid ${theme.palette.primary.main}`
     },
     commentContainer: {
-      padding: '1%',
+      padding: theme.spacing(0.3),
+    },
+    commentInnerContainer: {
+      padding: 10,
       marginBottom: theme.spacing(2),
       backgroundColor: '#e1f5fe',
       overflowWrap: 'break-word',
