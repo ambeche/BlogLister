@@ -122,8 +122,8 @@ const BlogDetails = ({ blog }) => {
       <List>
         <ListItem>
           <ListItemText
-            primary={`${blog.title}, ${blog.author}`}
-            secondary={`added by ${blog.user?.name}`}
+            primary={blog.title}
+            secondary={`Author: ${blog.author}; \u00A0\u00A0added by ${blog.user?.name}`}
             className={classes.listItemPrimary}
           />
           <ListItemSecondaryAction

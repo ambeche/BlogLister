@@ -83,7 +83,7 @@ const useStyles = makeStyles(
         flex: '0.2 1 auto',
         marginRight: theme.spacing(1),
         marginTop: theme.spacing(1.3),
-        color: theme.palette.background.paper,
+        color: theme.palette.background.paper
       }
     },
     searchBarTitle: {},
@@ -156,18 +156,54 @@ const useStyles = makeStyles(
       border: `0.5px solid ${theme.palette.primary.main}`
     },
     commentContainer: {
-      padding: theme.spacing(0.3),
+      padding: theme.spacing(0.3)
     },
     commentInnerContainer: {
       padding: 10,
       marginBottom: theme.spacing(2),
       backgroundColor: '#e1f5fe',
-      overflowWrap: 'break-word',
+      overflowWrap: 'break-word'
     },
     commentText: {},
     roundedCornersBox: {
       borderRadius: 8
     },
+    blogListContainer: {
+      paddingBottom: 24
+    },
+    blogGrid: {
+      display: 'grid',
+      marginTop: '4%',
+      [theme.breakpoints.up('md')]: {
+        gridTemplateColumns: 'auto auto'
+      }
+    },
+    blogCard: {
+      padding: 8,
+      marginTop: '4%',
+      [theme.breakpoints.up('md')]: {
+        gridTemplateColumns: 'auto auto',
+        margin: '3% 1.5% 1% 1.5%',
+        maxWidth: '94%'
+      }
+    },
+    blogMedia: {
+      height: 140,
+      width: '100%'
+    },
+    blogContent: {
+      textDecoration: 'none'
+    },
+    blogContentText: {
+      color: theme.palette.text.primary,
+      '& h6': {
+        margin: '2% 0% 2% 3%'
+      },
+      '& $blogContentDescription': {
+        margin: '1% 1% 1% 3%'
+      }
+    },
+    blogContentDescription: {},
     scrollableBox: (props) => ({
       padding: props ? 8 : 16,
       maxHeight: props.maxHeight || 450,

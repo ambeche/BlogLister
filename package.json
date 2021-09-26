@@ -28,8 +28,7 @@
     "eslint": "eslint . --fix",
     "cypress:open": "cypress open",
     "cypress:cli": "cypress run",
-    "deploy:main": "git push origin && git push heroku-1 main:main",
-    "deploy:link-preview": "git push -u origin link-preview && git push heroku-2 link-preview:main"
+    "deploy": "git push origin && git push heroku main:main",
   },
   "eslintConfig": {
     "extends": "react-app"

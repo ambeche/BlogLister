@@ -10,7 +10,7 @@ import { setCurrentUser, logoutUser, setUsers } from './reducers/usersReducer';
 import Blog from './components/Blog';
 import UserDetails from './components/UserDetails';
 import BlogDetails from './components/BlogDetails';
-import { Container, Paper } from '@material-ui/core';
+import { Container, Paper, Grid } from '@material-ui/core';
 import AppNav from './components/AppNav';
 import UserList from './components/UserList';
 import Profile from './components/Profile';
@@ -18,7 +18,6 @@ import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import useStyles from './styles/useStyles';
 import LoginOrRegister from './components/LoginOrRegister';
-import Spinner from './components/Spinner';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -92,7 +91,7 @@ const App = () => {
             <Profile currentUser={profileInfo} />
           </Route>
           <Route path="/">
-            <Container component={Paper}>
+            <Container component={Paper} className={classes.blogListContainer}>
               <DataList scroll={true} type="blogs" sortby="likes">
                 <Blog />
               </DataList>
