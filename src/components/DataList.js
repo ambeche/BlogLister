@@ -9,7 +9,7 @@ import { Typography } from '@material-ui/core';
 import BlogSearcher from './BlogSearcher';
 
 const DataList = ({ type, sortby, scroll, children }) => {
-  const classes = useStyles({ maxHeight: '65em' });
+  const classes = useStyles({ maxHeight: '60em' });
   const [searchWords, setSearchWords] = useState('');
 
   // search logic for filtering blogs by search parameters
@@ -48,14 +48,16 @@ const DataList = ({ type, sortby, scroll, children }) => {
         </div>
       )}
       <div className={scroll && classes.scrollableBox}>
-        {dataList?.map((data) =>
-          // This approach is used instead of {props.children} because of the additional
-          // props that are required to be passed to the child by this parent component.
-          // The child component is accessed and its clone is returned with newly passed props
-          React.Children.map(children, (child) =>
-            React.cloneElement(child, { data, key: data.id })
-          )
-        )}
+        <div className={scroll && classes.blogGrid}>
+          {dataList?.map((data) =>
+            // This approach is used instead of {props.children} because of the additional
+            // props that are required to be passed to the child by this parent component.
+            // The child component is accessed and its clone is returned with newly passed props
+            React.Children.map(children, (child) =>
+              React.cloneElement(child, { data, key: data.id })
+            )
+          )}
+        </div>
       </div>
     </div>
   );
