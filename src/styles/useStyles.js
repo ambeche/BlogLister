@@ -128,7 +128,7 @@ const useStyles = makeStyles(
     },
     centerBlogForm: {
       '& div': {
-        display: 'block'
+        display: 'block',
       },
       '& button': {
         display: 'block',
@@ -141,6 +141,8 @@ const useStyles = makeStyles(
     },
     formTitle: {
       marginBottom: theme.spacing(2)
+    },
+    blogTopicsInput: {
     },
     commentForm: {
       marginBottom: theme.spacing(2),
