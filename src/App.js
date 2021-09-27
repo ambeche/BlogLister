@@ -10,7 +10,7 @@ import { setCurrentUser, logoutUser, setUsers } from './reducers/usersReducer';
 import Blog from './components/Blog';
 import UserDetails from './components/UserDetails';
 import BlogDetails from './components/BlogDetails';
-import { Container, Paper, Grid } from '@material-ui/core';
+import { Container, Paper } from '@material-ui/core';
 import AppNav from './components/AppNav';
 import UserList from './components/UserList';
 import Profile from './components/Profile';
@@ -92,7 +92,7 @@ const App = () => {
           </Route>
           <Route path="/">
             <Container component={Paper} className={classes.blogListContainer}>
-              <DataList scroll={true} type="blogs" sortby="likes">
+              <DataList scroll={true} type="blogs" sortby="likes" currentUser={currentUser.id} >
                 <Blog />
               </DataList>
             </Container>

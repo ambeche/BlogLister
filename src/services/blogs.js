@@ -36,6 +36,17 @@ const updateBlog = async (blog, id) => {
   return res.data;
 };
 
+const bookmarkBlog = async (id) => {
+  const res = await axios.put(
+    `${baseUrl}/${id}/bookmark`,
+    { id },
+    {
+      headers: { Authorization: token }
+    }
+  );
+  return res.data;
+};
+
 const deleteBlog = async (id) => {
   const res = await axios.delete(`${baseUrl}/${id}`, {
     headers: { Authorization: token }
@@ -54,5 +65,6 @@ export default {
   updateBlog,
   setToken,
   deleteBlog,
-  createComment
+  createComment,
+  bookmarkBlog
 };

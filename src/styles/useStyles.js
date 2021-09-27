@@ -128,7 +128,7 @@ const useStyles = makeStyles(
     },
     centerBlogForm: {
       '& div': {
-        display: 'block',
+        display: 'block'
       },
       '& button': {
         display: 'block',
@@ -142,8 +142,7 @@ const useStyles = makeStyles(
     formTitle: {
       marginBottom: theme.spacing(2)
     },
-    blogTopicsInput: {
-    },
+    blogTopicsInput: {},
     commentForm: {
       marginBottom: theme.spacing(2),
       marginTop: theme.spacing(2),
@@ -181,10 +180,10 @@ const useStyles = makeStyles(
       }
     },
     blogCard: {
-      padding: 8,
+      display: 'flex',
+      flexDirection: 'column',
       marginTop: '4%',
       [theme.breakpoints.up('md')]: {
-        gridTemplateColumns: 'auto auto',
         margin: '3% 1.5% 1% 1.5%',
         maxWidth: '94%'
       }
@@ -193,18 +192,26 @@ const useStyles = makeStyles(
       height: 140,
       width: '100%'
     },
+    blogContentContainer: { flex: 1 },
     blogContent: {
       textDecoration: 'none'
     },
     blogContentText: {
       color: theme.palette.text.primary,
-      '& h6': {
-        margin: '2% 0% 2% 3%'
-      },
-      '& $blogContentDescription': {
-        margin: '1% 1% 1% 3%'
+      padding: '1% 2% 1% 3%',
+    },
+    blogCardSecondaryActions: {
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      padding: 24,
+      '& $commentBadge': {
+        //marginRight: 100,
+        color: theme.palette.secondary.dark
       }
     },
+    commentBadge: {},
+    bookmarkIcon: { color: theme.palette.primary.dark },
     blogContentDescription: {},
     scrollableBox: (props) => ({
       padding: props ? 8 : 16,

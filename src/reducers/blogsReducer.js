@@ -13,6 +13,10 @@ const blogsReducer = (state = [], action) => {
     return state.map((b) =>
       b.id !== action.likedBlog.id ? b : { ...action.likedBlog }
     );
+    case 'BOOKMARK_BLOG':
+      return state.map((b) =>
+        b.id !== action.bookmarkedBlog.id ? b : { ...action.bookmarkedBlog }
+      );
   case 'DELETE_BLOG':
     return state.filter((blog) => blog.id !== action.id);
   case 'COMMENT_ON_BLOG':
@@ -67,6 +71,20 @@ const modifyBlog = (blog) => {
   };
 };
 
+const bookmarkBlog = (id) => {
+  return async (dispatch) => {
+    try {
+      const bookmarkedBlog = await blogService.bookmarkBlog(id);
+      dispatch({
+        type: 'BOOKMARK_BLOG',
+        bookmarkedBlog
+      });
+    } catch (err) {
+      console.error('error', err.message);
+    }
+  };
+};
+
 const deleteBlog = (id) => {
   return async (dispatch) => {
     try {
@@ -108,5 +126,6 @@ export {
   createNewBlog,
   modifyBlog,
   deleteBlog,
-  commentOnBlog
+  commentOnBlog,
+  bookmarkBlog,
 };

@@ -8,7 +8,7 @@ import useStyles from '../styles/useStyles';
 import { Typography } from '@material-ui/core';
 import BlogSearcher from './BlogSearcher';
 
-const DataList = ({ type, sortby, scroll, children }) => {
+const DataList = ({ type, sortby, scroll, currentUser, children }) => {
   const classes = useStyles({ maxHeight: '60em' });
   const [searchWords, setSearchWords] = useState('');
 
@@ -54,7 +54,7 @@ const DataList = ({ type, sortby, scroll, children }) => {
             // props that are required to be passed to the child by this parent component.
             // The child component is accessed and its clone is returned with newly passed props
             React.Children.map(children, (child) =>
-              React.cloneElement(child, { data, key: data.id })
+              React.cloneElement(child, { data, currentUser, key: data.id })
             )
           )}
         </div>
