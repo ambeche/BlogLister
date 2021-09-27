@@ -17,7 +17,7 @@ const Blog = ({ data, currentUser }) => {
 
   const addToReadingList = () => dispatch(bookmarkBlog(blog.id));
 
-  const isBookmarked = blog.reads.includes(currentUser.toString());
+  const isBookmarked = blog.reads?.includes(currentUser);
 
   return (
     <Paper className={classes.blogCard}>
