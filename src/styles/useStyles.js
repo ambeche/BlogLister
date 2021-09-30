@@ -259,7 +259,7 @@ const useStyles = makeStyles(
     bookmarkIcon: { color: theme.palette.primary.dark },
     blogContentDescription: {},
     scrollableBox: (props) => ({
-      padding: props ? 8 : 16,
+      padding: props.commentScroll ? 10 : 16,
       maxHeight: props.maxHeight || 450,
       overflow: 'auto'
     }),
