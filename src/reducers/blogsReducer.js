@@ -4,27 +4,27 @@ import { notifyUser } from '../reducers/notificationReducer';
 
 const blogsReducer = (state = [], action) => {
   switch (action.type) {
-  case 'BLOGS':
-    return action.blogs;
-  case 'NEW_BLOG':
-    return [...state, action.newBlog];
-  case 'LIKE_BLOG':
-    // returns a new state contianing the modified blog
-    return state.map((b) =>
-      b.id !== action.likedBlog.id ? b : { ...action.likedBlog }
-    );
+    case 'BLOGS':
+      return action.blogs;
+    case 'NEW_BLOG':
+      return [...state, action.newBlog];
+    case 'LIKE_BLOG':
+      // returns a new state contianing the modified blog
+      return state.map((b) =>
+        b.id !== action.likedBlog.id ? b : { ...action.likedBlog }
+      );
     case 'BOOKMARK_BLOG':
       return state.map((b) =>
         b.id !== action.bookmarkedBlog.id ? b : { ...action.bookmarkedBlog }
       );
-  case 'DELETE_BLOG':
-    return state.filter((blog) => blog.id !== action.id);
-  case 'COMMENT_ON_BLOG':
-    return state.map((b) =>
-      b.id !== action.commentedBlog.id ? b : { ...action.commentedBlog }
-    );
-  default:
-    return state;
+    case 'DELETE_BLOG':
+      return state.filter((blog) => blog.id !== action.id);
+    case 'COMMENT_ON_BLOG':
+      return state.map((b) =>
+        b.id !== action.commentedBlog.id ? b : { ...action.commentedBlog }
+      );
+    default:
+      return state;
   }
 };
 
@@ -46,11 +46,17 @@ const createNewBlog = (newBlog) => {
         type: 'NEW_BLOG',
         newBlog: createdBlog
       });
-      if (createdBlog) dispatch(notifyUser(`Your Blog '${createdBlog.title}' has been added!`, 1));
+      if (createdBlog)
+        dispatch(
+          notifyUser(`Your Blog '${createdBlog.title}' has been added!`, 1)
+        );
     } catch (err) {
       //console.log('blog creation failed', err);
       dispatch(
-        notifyUser(`Blog was NOT added: ${err.response.data.error} or invalid url`, 0)
+        notifyUser(
+          `Blog was NOT added: ${err.response.data.error} or invalid url`,
+          0
+        )
       );
     }
   };
@@ -127,5 +133,5 @@ export {
   modifyBlog,
   deleteBlog,
   commentOnBlog,
-  bookmarkBlog,
+  bookmarkBlog
 };

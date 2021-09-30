@@ -1,6 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Paper, Typography, Grid, Badge } from '@material-ui/core';
+import {
+  Paper,
+  Typography,
+  Grid,
+  Badge,
+  IconButton,
+  Tooltip
+} from '@material-ui/core';
 import useStyles from '../styles/useStyles';
 import {
   Bookmark,
@@ -17,7 +24,7 @@ const Blog = ({ data, currentUser }) => {
 
   const addToReadingList = () => dispatch(bookmarkBlog(blog.id));
 
-  const isBookmarked = blog.reads?.includes(currentUser);
+  const isBookmarked = blog.reads?.includes(currentUser?.id);
 
   return (
     <Paper className={classes.blogCard}>
@@ -28,12 +35,8 @@ const Blog = ({ data, currentUser }) => {
           to={`/blogs/${blog?.id}`}
           className={classes.blogContent}
         >
-          <Grid item xs={12} sm={4}>
-            <img
-              src={blog?.linkPreview?.image}
-              alt={blog?.title}
-              className={classes.blogMedia}
-            />
+          <Grid item xs={12} sm={4} className={classes.blogMedia}>
+            <img src={blog?.linkPreview?.image} alt={blog?.title} />
           </Grid>
 
           <Grid item xs={12} sm={8} className={classes.blogContentText}>
@@ -48,23 +51,31 @@ const Blog = ({ data, currentUser }) => {
         </Grid>
       </div>
       <div className={classes.blogCardSecondaryActions}>
-        <Badge
-          badgeContent={blog?.numberOfComments}
-          className={classes.commentBadge}
-        >
-          <CommentRounded className={classes.bookmarkIcon} />
-        </Badge>
+        {
+          <IconButton component={Link} to={`/blogs/${blog?.id}`}>
+            <Badge
+              badgeContent={blog?.numberOfComments}
+              className={classes.commentBadge}
+            >
+              <CommentRounded
+                className={classes.bookmarkIcon}
+                fontSize="small"
+              />
+            </Badge>
+          </IconButton>
+        }
         {isBookmarked ? (
-          <Bookmark
-            className={classes.bookmarkIcon}
-            onClick={addToReadingList}
-            color="secondary"
-          />
+          <Tooltip title="remove from your list">
+            <IconButton onClick={addToReadingList}>
+              <Bookmark className={classes.bookmarkIcon} />
+            </IconButton>
+          </Tooltip>
         ) : (
-          <BookmarkBorderOutlined
-            className={classes.bookmarkIcon}
-            onClick={addToReadingList}
-          />
+          <Tooltip title="save to reading list">
+            <IconButton onClick={addToReadingList}>
+              <BookmarkBorderOutlined className={classes.bookmarkIcon} />
+            </IconButton>
+          </Tooltip>
         )}
       </div>
     </Paper>

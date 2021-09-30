@@ -6,13 +6,13 @@ import {
   TextField,
   Typography,
   Button,
-  FormGroup,
   FormControlLabel,
   Checkbox,
   FormHelperText
 } from '@material-ui/core';
 import useStyles from '../styles/useStyles';
 import { toggleOff } from '../reducers/toggleReducer';
+import { inititialState } from './utils/constants';
 
 const BlogForm = ({ toggleForm }) => {
   const dispatch = useDispatch();
@@ -20,17 +20,7 @@ const BlogForm = ({ toggleForm }) => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [url, setUrl] = useState('');
-  const [topics, setTopics] = useState({
-    'software development': false,
-    sciences: false,
-    health: false,
-    arts: false,
-    politics: false,
-    education: false,
-    religion: false,
-    business: false,
-    'beauty-fashion': false
-  });
+  const [topics, setTopics] = useState({ ...inititialState });
   const [error, setError] = useState(false);
   const history = useHistory();
 
@@ -39,7 +29,6 @@ const BlogForm = ({ toggleForm }) => {
   const handleUrlChange = ({ target }) => setUrl(target.value);
   const handleChecking = ({ target }) => {
     setTopics({ ...topics, [target.name]: target.checked });
-    console.log('topics', topics);
   };
 
   const handleBlogCreation = (event) => {
@@ -56,6 +45,8 @@ const BlogForm = ({ toggleForm }) => {
       toggleForm.current.toggleVisibility();
       // dispatches the newly created blog to redux store
       dispatch(createNewBlog({ title, author, url, topics: checkedTopics }));
+
+      setTopics(inititialState);
       setTitle('');
       setAuthor('');
       setUrl('');
@@ -93,98 +84,205 @@ const BlogForm = ({ toggleForm }) => {
               at least one topic should be selected
             </FormHelperText>
           )}
-          <FormGroup row>
+          <div
+            className={`${classes.blogTopicsCheckBoxes} ${classes.roundedCornersBox}`}
+          >
             <FormControlLabel
+              className={`${
+                topics['software engineering'] ? classes.checkedBoxLabel : ''
+              } ${classes.checkBoxLabel}`}
               control={
                 <Checkbox
-                  checked={topics['software development']}
+                  checked={topics['software engineering']}
                   onChange={handleChecking}
-                  name="software development"
+                  name="software engineering"
+                  icon={<span className={classes.checkBoxIcon} />}
+                  checkedIcon={<span className={classes.checkBoxIcon} />}
                 />
               }
-              label="software development"
+              label="software engineering"
             />
             <FormControlLabel
+              className={`${topics.sciences ? classes.checkedBoxLabel : ''} ${
+                classes.checkBoxLabel
+              }`}
               control={
                 <Checkbox
                   checked={topics.sciences}
                   onChange={handleChecking}
                   name="sciences"
+                  icon={<span className={classes.checkBoxIcon} />}
+                  checkedIcon={<span className={classes.checkBoxIcon} />}
                 />
               }
               label="sciences"
             />
             <FormControlLabel
+              className={`${topics.health ? classes.checkedBoxLabel : ''} ${
+                classes.checkBoxLabel
+              }`}
               control={
                 <Checkbox
                   checked={topics.health}
                   onChange={handleChecking}
                   name="health"
+                  icon={<span className={classes.checkBoxIcon} />}
+                  checkedIcon={<span className={classes.checkBoxIcon} />}
                 />
               }
               label="health"
             />
             <FormControlLabel
+              className={`${topics.arts ? classes.checkedBoxLabel : ''} ${
+                classes.checkBoxLabel
+              }`}
               control={
                 <Checkbox
                   checked={topics.arts}
                   onChange={handleChecking}
                   name="arts"
+                  icon={<span className={classes.checkBoxIcon} />}
+                  checkedIcon={<span className={classes.checkBoxIcon} />}
                 />
               }
               label="arts"
             />
             <FormControlLabel
+              className={`${topics.politics ? classes.checkedBoxLabel : ''} ${
+                classes.checkBoxLabel
+              }`}
               control={
                 <Checkbox
                   checked={topics.politics}
                   onChange={handleChecking}
                   name="politics"
+                  icon={<span className={classes.checkBoxIcon} />}
+                  checkedIcon={<span className={classes.checkBoxIcon} />}
                 />
               }
               label="politics"
             />
             <FormControlLabel
+              className={`${topics.education ? classes.checkedBoxLabel : ''} ${
+                classes.checkBoxLabel
+              }`}
               control={
                 <Checkbox
                   checked={topics.education}
                   onChange={handleChecking}
                   name="education"
+                  icon={<span className={classes.checkBoxIcon} />}
+                  checkedIcon={<span className={classes.checkBoxIcon} />}
                 />
               }
               label="education"
             />
             <FormControlLabel
+              className={`${topics.religion ? classes.checkedBoxLabel : ''} ${
+                classes.checkBoxLabel
+              }`}
               control={
                 <Checkbox
                   checked={topics.religion}
                   onChange={handleChecking}
                   name="religion"
+                  icon={<span className={classes.checkBoxIcon} />}
+                  checkedIcon={<span className={classes.checkBoxIcon} />}
                 />
               }
               label="religion"
             />
             <FormControlLabel
+              className={`${topics.business ? classes.checkedBoxLabel : ''} ${
+                classes.checkBoxLabel
+              }`}
               control={
                 <Checkbox
                   checked={topics.business}
                   onChange={handleChecking}
                   name="business"
+                  icon={<span className={classes.checkBoxIcon} />}
+                  checkedIcon={<span className={classes.checkBoxIcon} />}
                 />
               }
               label="business"
             />
             <FormControlLabel
+              className={`${topics.android ? classes.checkedBoxLabel : ''} ${
+                classes.checkBoxLabel
+              }`}
+              control={
+                <Checkbox
+                  checked={topics.android}
+                  onChange={handleChecking}
+                  name="android"
+                  icon={<span className={classes.checkBoxIcon} />}
+                  checkedIcon={<span className={classes.checkBoxIcon} />}
+                />
+              }
+              label="android"
+            />
+            <FormControlLabel
+              className={`${
+                topics['web development'] ? classes.checkedBoxLabel : ''
+              } ${classes.checkBoxLabel}`}
+              control={
+                <Checkbox
+                  checked={topics['web development']}
+                  onChange={handleChecking}
+                  name="web development"
+                  icon={<span className={classes.checkBoxIcon} />}
+                  checkedIcon={<span className={classes.checkBoxIcon} />}
+                />
+              }
+              label="web development"
+            />
+            <FormControlLabel
+              className={`${
+                topics['mobile development'] ? classes.checkedBoxLabel : ''
+              } ${classes.checkBoxLabel}`}
+              control={
+                <Checkbox
+                  checked={topics['mobile development']}
+                  onChange={handleChecking}
+                  name="mobile development"
+                  icon={<span className={classes.checkBoxIcon} />}
+                  checkedIcon={<span className={classes.checkBoxIcon} />}
+                />
+              }
+              label="mobile development"
+            />
+            <FormControlLabel
+              className={`${
+                topics['beauty-fashion'] ? classes.checkedBoxLabel : ''
+              } ${classes.checkBoxLabel}`}
               control={
                 <Checkbox
                   checked={topics['beauty-fashion']}
                   onChange={handleChecking}
                   name="beauty-fashion"
+                  icon={<span className={classes.checkBoxIcon} />}
+                  checkedIcon={<span className={classes.checkBoxIcon} />}
                 />
               }
               label="beauty-fashion"
             />
-          </FormGroup>
+            <FormControlLabel
+              className={`${topics.general ? classes.checkedBoxLabel : ''} ${
+                classes.checkBoxLabel
+              }`}
+              control={
+                <Checkbox
+                  checked={topics.general}
+                  onChange={handleChecking}
+                  name="general"
+                  icon={<span className={classes.checkBoxIcon} />}
+                  checkedIcon={<span className={classes.checkBoxIcon} />}
+                />
+              }
+              label="general"
+            />
+          </div>
         </div>
         <div>
           <TextField

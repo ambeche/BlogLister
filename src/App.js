@@ -28,6 +28,7 @@ const App = () => {
   ]);
   const matchedUser = useRouteMatch('/users/:id');
   const matchedBlog = useRouteMatch('/blogs/:id');
+  const matchProfile = useRouteMatch('/profile');
   const history = useHistory();
   const blogFormRef = useRef();
   const classes = useStyles();
@@ -56,12 +57,20 @@ const App = () => {
   // currentUser token is encripted and lacks some info needed for the profile
   // hence this approach is used
   // this will be optimized in the backend later
-  const profileInfo = users?.find(
-    (user) =>
-      user?.username === currentUser?.username &&
-      user?.name === currentUser?.name
-  );
 
+  const profileInfo = () => {
+    const bookmarks = blogs.filter((blog) =>
+      blog.reads.includes(currentUser?.id)
+    ).length;
+
+    const cUser = users?.find(
+      (user) =>
+        user?.username === currentUser?.username &&
+        user?.name === currentUser?.name
+    );
+
+    return { ...cUser, bookmarkCounts: bookmarks };
+  };
   if (!currentUser) return <LoginOrRegister />;
 
   return (
@@ -88,11 +97,16 @@ const App = () => {
             <UserList />
           </Route>
           <Route path="/profile">
-            <Profile currentUser={profileInfo} />
+            <Profile currentUser={profileInfo()} />
           </Route>
           <Route path="/">
             <Container component={Paper} className={classes.blogListContainer}>
-              <DataList scroll={true} type="blogs" sortby="likes" currentUser={currentUser.id} >
+              <DataList
+                scroll={true}
+                type="blogs"
+                sortby="likes"
+                currentUser={profileInfo()}
+              >
                 <Blog />
               </DataList>
             </Container>
@@ -100,7 +114,7 @@ const App = () => {
         </Switch>
       </Container>
       <Container>
-        <Footer currentUser={currentUser} />
+        {matchProfile?.path ? <Footer /> : <Footer currentUser={currentUser} />}
       </Container>
     </div>
   );

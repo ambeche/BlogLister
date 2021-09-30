@@ -12,9 +12,12 @@ import {
 import { AccountCircle } from '@material-ui/icons';
 import MenuIcon from '@material-ui/icons/Menu';
 import useStyles from '../styles/useStyles';
+import { useDispatch } from 'react-redux';
+import { toggleOff } from '../reducers/toggleReducer';
 
 const AppNav = ({ currentUser, handleLogout }) => {
   const classes = useStyles();
+  const dispatch = useDispatch();
   // menue controlls and dom element to which the generated menu is attached to
   const [anchorElement, setAnchorElement] = useState(null);
   const [profileAnchorElement, setProfileAnchorElement] = useState(null);
@@ -28,6 +31,8 @@ const AppNav = ({ currentUser, handleLogout }) => {
 
   const menuId = 'smView';
   const profileMenuId = 'smProfile';
+
+  const toggleOffBlogForm = () => dispatch(toggleOff());
 
   const handleDrawerOpening = (event) => {
     setAnchorElement(event.currentTarget);
@@ -47,6 +52,7 @@ const AppNav = ({ currentUser, handleLogout }) => {
   const handleProfileDrawerClosing = () => {
     setProfileAnchorElement(null);
     handleDrawerClosing();
+    toggleOffBlogForm();
   };
 
   const profile = () => (
@@ -54,6 +60,7 @@ const AppNav = ({ currentUser, handleLogout }) => {
       className={
         profileTabSelected?.path?.includes('/profile') && classes.appBarTab
       }
+      onClick={toggleOffBlogForm}
       component={Link}
       to="/profile"
       color="inherit"
@@ -158,6 +165,7 @@ const AppNav = ({ currentUser, handleLogout }) => {
             variant="h6"
             noWrap
             color="inherit"
+            onClick={toggleOffBlogForm}
             component={Link}
             to="/"
           >
@@ -171,6 +179,7 @@ const AppNav = ({ currentUser, handleLogout }) => {
                 classes.appBarTab
               }
               component={Link}
+              onClick={toggleOffBlogForm}
               to="/"
               color="inherit"
             >
@@ -180,6 +189,7 @@ const AppNav = ({ currentUser, handleLogout }) => {
               className={
                 usersTabSelected?.path?.includes('/users') && classes.appBarTab
               }
+              onClick={toggleOffBlogForm}
               component={Link}
               to="/users"
               color="inherit"

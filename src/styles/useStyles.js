@@ -81,11 +81,24 @@ const useStyles = makeStyles(
       backgroundColor: theme.palette.primary.light,
       '& h6': {
         flex: '0.2 1 auto',
-        marginRight: theme.spacing(1),
+        marginRight: theme.spacing(0),
         marginTop: theme.spacing(1.3),
+        color: theme.palette.background.paper
+      },
+      '& $searchBarMoreIcon': {
+        marginRight: 32,
         color: theme.palette.background.paper
       }
     },
+    searchMenu: { maxHeight: '60%' },
+    searchOptionsTitle: {
+      backgroundColor: theme.palette.primary.light,
+      '&:hover': { backgroundColor: theme.palette.primary.light },
+      '& h6': {
+        color: '#fff'
+      }
+    },
+    searchBarMoreIcon: {},
     searchBarTitle: {},
     searchBox: {
       flex: '1 1 auto',
@@ -143,6 +156,26 @@ const useStyles = makeStyles(
       marginBottom: theme.spacing(2)
     },
     blogTopicsInput: {},
+    // checkboxes: blog addition form
+    blogTopicsCheckBoxes: {
+      display: 'flex',
+      flexFlow: 'row wrap',
+      border: '0.5px solid',
+      padding: 16,
+      '& $checkBoxIcon': {
+        display: 'none'
+      },
+      '& $checkedBoxLabel': {
+        backgroundColor: theme.palette.primary.light,
+        color: '#fff',
+        textAlign: 'center',
+        paddingRight: 10,
+        borderRadius: 8
+      }
+    },
+    checkBoxIcon: {},
+    checkedBoxLabel: {},
+    checkBoxLabel: { margin: 10 },
     commentForm: {
       marginBottom: theme.spacing(2),
       marginTop: theme.spacing(2),
@@ -189,8 +222,20 @@ const useStyles = makeStyles(
       }
     },
     blogMedia: {
-      height: 140,
-      width: '100%'
+      [theme.breakpoints.up('sm')]: { padding: '3% 0 0 0' },
+      '& img': {
+        height: 140,
+        maxWidth: '100%',
+        objectFit: 'contain',
+        [theme.breakpoints.up('sm')]: { objectPosition: '0 0%' },
+        [theme.breakpoints.down('sm')]: {
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          width: '100%',
+          display: 'block'
+        }
+        //objectPosition: '0 0%'
+      }
     },
     blogContentContainer: { flex: 1 },
     blogContent: {
@@ -198,7 +243,7 @@ const useStyles = makeStyles(
     },
     blogContentText: {
       color: theme.palette.text.primary,
-      padding: '1% 2% 1% 3%',
+      padding: '1% 2% 1% 3%'
     },
     blogCardSecondaryActions: {
       display: 'flex',
@@ -245,6 +290,10 @@ const useStyles = makeStyles(
     profile: {
       '& h6': {
         marginTop: '4%'
+      },
+      '& strong': {
+        fontWeight: 'bold',
+        marginRight: '10%'
       }
     },
     userDetails: {

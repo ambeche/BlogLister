@@ -1,4 +1,4 @@
-import { InputAdornment, InputBase, Paper, Tooltip } from '@material-ui/core';
+import { InputBase, Paper, Tooltip } from '@material-ui/core';
 import { SearchOutlined } from '@material-ui/icons';
 import React from 'react';
 import useStyles from '../styles/useStyles';
@@ -12,7 +12,7 @@ const BlogSearcher = ({ searchWords, handleSearch }) => {
           value={searchWords}
           className={classes.searchInput}
           type="search"
-          placeholder="search by title, author or keywords"
+          placeholder="search by title, author or topics"
           inputProps={{ 'arial-label': 'search blogs by title or author' }}
           id="filter"
           name="filter"
