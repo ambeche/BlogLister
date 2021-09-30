@@ -10,7 +10,7 @@ import { setCurrentUser, logoutUser, setUsers } from './reducers/usersReducer';
 import Blog from './components/Blog';
 import UserDetails from './components/UserDetails';
 import BlogDetails from './components/BlogDetails';
-import { Container, Paper, useMediaQuery } from '@material-ui/core';
+import { Container } from '@material-ui/core';
 import AppNav from './components/AppNav';
 import UserList from './components/UserList';
 import Profile from './components/Profile';
