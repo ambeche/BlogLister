@@ -161,12 +161,6 @@ const Profile = ({ currentUser }) => {
               secondary={currentUser?.username}
             />
           </ListItem>
-          <ListItem>
-            <ListItemText
-              primary="Total blogs added"
-              secondary={currentUser?.blogs?.length}
-            />
-          </ListItem>
         </List>
       </Accordion>
       {bookmarkedList()}
@@ -190,10 +184,10 @@ const Profile = ({ currentUser }) => {
           </Typography>
         </AccordionSummary>
         <List>
-          <ListItem>
+        <ListItem>
             <ListItemText
-              primary="Username"
-              secondary={currentUser?.username}
+              primary="Total blogs added"
+              secondary={currentUser?.blogs?.length}
             />
           </ListItem>
         </List>
