@@ -10,7 +10,7 @@ import { setCurrentUser, logoutUser, setUsers } from './reducers/usersReducer';
 import Blog from './components/Blog';
 import UserDetails from './components/UserDetails';
 import BlogDetails from './components/BlogDetails';
-import { Container, Paper, useMediaQuery } from '@material-ui/core';
+import { Container } from '@material-ui/core';
 import AppNav from './components/AppNav';
 import UserList from './components/UserList';
 import Profile from './components/Profile';
@@ -29,7 +29,6 @@ const App = () => {
   const matchedUser = useRouteMatch('/users/:id');
   const matchedBlog = useRouteMatch('/blogs/:id');
   const matchProfile = useRouteMatch('/profile');
-  const breakpoints = useMediaQuery('(min-width: 959px)');
   const history = useHistory();
   const blogFormRef = useRef();
   const classes = useStyles();
@@ -101,7 +100,7 @@ const App = () => {
             <Profile currentUser={profileInfo()} />
           </Route>
           <Route path="/">
-          <Container component={breakpoints ? Paper : 'div'} className={classes.blogListContainer}>
+          <Container  className={classes.blogListContainer}>
               <DataList
                 scroll={true}
                 type="blogs"

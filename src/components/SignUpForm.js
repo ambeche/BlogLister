@@ -41,6 +41,7 @@ const SignUpForm = () => {
             autoComplete="on"
             required
             variant="outlined"
+            maxLength={30}
           />
         </div>
 
