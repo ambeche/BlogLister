@@ -35,7 +35,7 @@ const BlogForm = ({ toggleForm }) => {
     event.preventDefault();
     const checkedValues = Object.values(topics);
 
-    if (checkedValues.includes(true)) {
+    if (checkedValues.includes(true) && title.length < 150) {
       setError(false);
       const checkedTopics = Object.keys(topics).filter(
         (topic, i) => Boolean(checkedValues[i]) && topic
@@ -52,7 +52,7 @@ const BlogForm = ({ toggleForm }) => {
       setUrl('');
       dispatch(toggleOff());
       history.push('/');
-    } else setError(true);
+    } else !(title.length > 150) && setError(true);
   };
 
   return (
@@ -69,6 +69,11 @@ const BlogForm = ({ toggleForm }) => {
             label="Title"
             id="Title"
             name="title"
+            error={title.length > 150}
+            helperText={
+              title.length > 150 &&
+              'text is too large for title, max allowed characters is 150'
+            }
             autoComplete="on"
             required
             variant="outlined"

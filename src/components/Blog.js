@@ -12,7 +12,8 @@ import useStyles from '../styles/useStyles';
 import {
   Bookmark,
   BookmarkBorderOutlined,
-  CommentRounded
+  CommentRounded,
+  MenuBook
 } from '@material-ui/icons';
 import { bookmarkBlog } from '../reducers/blogsReducer';
 import { useDispatch } from 'react-redux';
@@ -36,7 +37,7 @@ const Blog = ({ data, currentUser }) => {
           className={classes.blogContent}
         >
           <Grid item xs={12} sm={4} className={classes.blogMedia}>
-            <img src={blog?.linkPreview?.image} alt={blog?.title} />
+            { blog?.linkPreview?.image ? <img src={blog?.linkPreview?.image} alt={blog?.title} /> : <MenuBook fontSize="large" /> }
           </Grid>
 
           <Grid item xs={12} sm={8} className={classes.blogContentText}>
