@@ -1,23 +1,23 @@
 import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Switch, Route, useRouteMatch, useHistory } from 'react-router-dom';
-import DataList from './components/DataList';
-import BlogForm from './components/BlogForm';
-import Notification from './components/Notification';
-import ToggleVisibility from './components/ToggleVisibility';
+import DataList from './components/reUseables/DataList';
+import BlogForm from './components/blogs/BlogForm';
+import Notification from './components/utils/Notification';
+import ToggleVisibility from './components/reUseables/ToggleVisibility';
 import { setBlogs } from './reducers/blogsReducer';
 import { setCurrentUser, logoutUser, setUsers } from './reducers/usersReducer';
-import Blog from './components/Blog';
-import UserDetails from './components/UserDetails';
-import BlogDetails from './components/BlogDetails';
+import Blog from './components/blogs/Blog';
+import UserDetails from './components/users/UserDetails';
+import BlogDetails from './components/blogs/BlogDetails';
 import { Container } from '@material-ui/core';
-import AppNav from './components/AppNav';
-import UserList from './components/UserList';
+import AppNav from './components/headers/AppNav';
+import UserList from './components/users/UserList';
 import Profile from './components/Profile';
-import Footer from './components/Footer';
-import ScrollToTop from './components/ScrollToTop';
+import Footer from './components/footer/Footer';
+import ScrollToTop from './components/utils/ScrollToTop';
 import useStyles from './styles/useStyles';
-import LoginOrRegister from './components/LoginOrRegister';
+import LoginOrRegister from './components/auth/LoginOrRegister';
 
 const App = () => {
   const dispatch = useDispatch();

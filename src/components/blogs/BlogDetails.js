@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
-import { modifyBlog, deleteBlog } from '../reducers/blogsReducer';
+import { modifyBlog, deleteBlog } from '../../reducers/blogsReducer';
 import { Link } from 'react-router-dom';
 import {
   Button,
@@ -18,10 +18,10 @@ import {
   Favorite,
   FavoriteBorderOutlined
 } from '@material-ui/icons';
-import useStyles from '../styles/useStyles';
-import styles from '../styles/BlogDetails.module.css';
-import helpers from './utils/helpers';
-import Spinner from './Spinner';
+import useStyles from '../../styles/useStyles';
+import styles from '../../styles/BlogDetails.module.css';
+import helpers from '../utils/helpers';
+import Spinner from '../utils/Spinner';
 
 const BlogDetails = ({ blog }) => {
   const dispatch = useDispatch();

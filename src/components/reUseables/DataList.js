@@ -2,13 +2,13 @@
 // it receives children components as props.children
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Spinner from './Spinner';
+import Spinner from '../utils/Spinner';
 import PropTypes from 'prop-types';
-import useStyles from '../styles/useStyles';
+import useStyles from '../../styles/useStyles';
 import { IconButton, Typography, Menu, MenuItem } from '@material-ui/core';
-import BlogSearcher from './BlogSearcher';
+import BlogSearcher from '../headers/BlogSearcher';
 import { MoreVert } from '@material-ui/icons';
-import { searchOptions } from './utils/constants';
+import { searchOptions } from '../utils/constants';
 
 const DataList = ({
   type,

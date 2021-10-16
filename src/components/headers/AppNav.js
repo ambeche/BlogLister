@@ -11,9 +11,9 @@ import {
 } from '@material-ui/core';
 import { AccountCircle } from '@material-ui/icons';
 import MenuIcon from '@material-ui/icons/Menu';
-import useStyles from '../styles/useStyles';
+import useStyles from '../../styles/useStyles';
 import { useDispatch } from 'react-redux';
-import { toggleOff } from '../reducers/toggleReducer';
+import { toggleOff } from '../../reducers/toggleReducer';
 
 const AppNav = ({ currentUser, handleLogout }) => {
   const classes = useStyles();

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { TextField, Button, Typography } from '@material-ui/core';
-import { setCurrentUser } from '../reducers/usersReducer';
-import useStyles from '../styles/useStyles';
+import { setCurrentUser } from '../../reducers/usersReducer';
+import useStyles from '../../styles/useStyles';
 
 const LoginForm = () => {
   const dispatch = useDispatch();

@@ -8,7 +8,7 @@ import {
 } from '@material-ui/core';
 import { Close } from '@material-ui/icons';
 import React from 'react';
-import useStyles from '../styles/useStyles';
+import useStyles from '../../styles/useStyles';
 
 const DialogTransition = React.forwardRef((props, ref) => (
   <Slide ref={ref} {...props} direction="right" />

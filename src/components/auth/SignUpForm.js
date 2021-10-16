@@ -1,8 +1,8 @@
 import { TextField, Typography, Button } from '@material-ui/core';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addUser } from '../reducers/usersReducer';
-import useStyles from '../styles/useStyles';
+import { addUser } from '../../reducers/usersReducer';
+import useStyles from '../../styles/useStyles';
 
 const SignUpForm = () => {
   const dispatch = useDispatch();

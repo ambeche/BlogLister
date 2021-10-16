@@ -1,6 +1,6 @@
 import React from 'react';
 import User from './User';
-import DataList from './DataList';
+import DataList from '../reUseables/DataList';
 import {
   TableCell,
   TableContainer,
@@ -10,7 +10,7 @@ import {
   Typography,
   Paper
 } from '@material-ui/core';
-import useStyles from '../styles/useStyles';
+import useStyles from '../../styles/useStyles';
 
 const UserList = () => {
   const classes = useStyles();

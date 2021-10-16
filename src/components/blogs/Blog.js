@@ -8,14 +8,14 @@ import {
   IconButton,
   Tooltip
 } from '@material-ui/core';
-import useStyles from '../styles/useStyles';
+import useStyles from '../../styles/useStyles';
 import {
   Bookmark,
   BookmarkBorderOutlined,
   CommentRounded,
   MenuBook
 } from '@material-ui/icons';
-import { bookmarkBlog } from '../reducers/blogsReducer';
+import { bookmarkBlog } from '../../reducers/blogsReducer';
 import { useDispatch } from 'react-redux';
 
 const Blog = ({ data, currentUser }) => {

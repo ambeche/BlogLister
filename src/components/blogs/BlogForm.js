@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import { useDispatch } from 'react-redux';
-import { createNewBlog } from '../reducers/blogsReducer';
+import { createNewBlog } from '../../reducers/blogsReducer';
 import {
   TextField,
   Typography,
@@ -10,9 +10,9 @@ import {
   Checkbox,
   FormHelperText
 } from '@material-ui/core';
-import useStyles from '../styles/useStyles';
-import { toggleOff } from '../reducers/toggleReducer';
-import { inititialState } from './utils/constants';
+import useStyles from '../../styles/useStyles';
+import { toggleOff } from '../../reducers/toggleReducer';
+import { inititialState } from '../utils/constants';
 
 const BlogForm = ({ toggleForm }) => {
   const dispatch = useDispatch();

@@ -8,7 +8,7 @@ import {
   Typography
 } from '@material-ui/core';
 import React from 'react';
-import useStyles from '../styles/useStyles';
+import useStyles from '../../styles/useStyles';
 
 const UserDetails = ({ user }) => {
   const classes = useStyles();

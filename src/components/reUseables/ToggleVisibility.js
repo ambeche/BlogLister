@@ -1,9 +1,9 @@
 import React, { useImperativeHandle } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import { toggleOff, toggleOn } from '../reducers/toggleReducer';
+import { toggleOff, toggleOn } from '../../reducers/toggleReducer';
 import { Button } from '@material-ui/core';
-import useStyles from '../styles/useStyles';
+import useStyles from '../../styles/useStyles';
 
 const ToggleVisibility = React.forwardRef((props, ref) => {
   const dispatch = useDispatch();

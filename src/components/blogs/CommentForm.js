@@ -2,8 +2,8 @@ import { Button, TextField } from '@material-ui/core';
 import { CommentRounded } from '@material-ui/icons';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { commentOnBlog } from '../reducers/blogsReducer';
-import useStyles from '../styles/useStyles';
+import { commentOnBlog } from '../../reducers/blogsReducer';
+import useStyles from '../../styles/useStyles';
 
 const CommentForm = ({ blogId }) => {
   const dispatch = useDispatch();

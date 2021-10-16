@@ -16,8 +16,8 @@ import {
 import { Bookmark, ExpandMore } from '@material-ui/icons';
 import React, { useState } from 'react';
 import useStyles from '../styles/useStyles';
-import Blog from './Blog';
-import DataList from './DataList';
+import Blog from './blogs/Blog';
+import DataList from './reUseables/DataList';
 
 const Profile = ({ currentUser }) => {
   const classes = useStyles();

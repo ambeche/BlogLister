@@ -8,12 +8,12 @@ import {
   Typography
 } from '@material-ui/core';
 import { AddCircle, Book, CommentRounded } from '@material-ui/icons';
-import useStyles from '../styles/useStyles';
-import Notification from './Notification';
+import useStyles from '../../styles/useStyles';
+import Notification from '../utils/Notification';
 import LoginForm from './LoginForm';
-import ToggleVisibility from './ToggleVisibility';
+import ToggleVisibility from '../reUseables/ToggleVisibility';
 import SignUpForm from './SignUpForm';
-import Footer from './Footer';
+import Footer from '../footer/Footer';
 
 const LoginOrRegister = () => {
   const classes = useStyles();

@@ -1,7 +1,7 @@
 import { InputBase, Paper, Tooltip } from '@material-ui/core';
 import { SearchOutlined } from '@material-ui/icons';
 import React from 'react';
-import useStyles from '../styles/useStyles';
+import useStyles from '../../styles/useStyles';
 
 const BlogSearcher = ({ searchWords, handleSearch }) => {
   const classes = useStyles();

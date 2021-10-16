@@ -12,8 +12,8 @@ import {
 import { GitHub, LinkedIn } from '@material-ui/icons';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import useStyles from '../styles/useStyles';
-import MainModal from './MainModal';
+import useStyles from '../../styles/useStyles';
+import MainModal from '../reUseables/MainModal';
 import PrivacyPolicy from './PrivacyPolicy';
 
 const Footer = (props) => {
